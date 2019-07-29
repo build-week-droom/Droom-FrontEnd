@@ -3,6 +3,17 @@ import React from "react";
 export const UserProfile = props => {
   const { handleSubmit, handleChange } = props;
 
+  //   const handleSubmit = event => {
+  //     event.preventDefault();
+  //     submitPerson(person);
+  //     setPerson({name: "", email: "", interests: "", pastExperience: "", location: ""});
+
+  //   };
+
+  // const handleChange = event => {
+  //     setPerson({...person, [event.target.name]: event.target.value});
+  //   };
+
   return (
     <div className="main-wrapper">
       <div className="profile-container">

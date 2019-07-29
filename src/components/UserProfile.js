@@ -12,7 +12,7 @@ export const UserProfile = props => {
             name="name"
             inputChange={inputChange}
             value={name}
-            labelText="Your full name"
+            labelText="Enter Your Full Name"
           />
 
           <input
@@ -20,7 +20,30 @@ export const UserProfile = props => {
             name="email"
             inputChange={inputChange}
             value={email}
-            labelText="Email"
+            labelText="Enter Your Email"
+          />
+
+          <input
+            type="text"
+            name="interests"
+            inputChange={inputChange}
+            value={interests}
+            labelText="Enter Your Interests"
+          />
+
+          <input
+            type="text"
+            name="pastExperience"
+            inputChange={inputChange}
+            value={pastExperience}
+            labelText="Enter Your Past Experience"
+          />
+          <input
+            type="text"
+            name="location"
+            inputChange={inputChange}
+            value={location}
+            labelText="Enter Your Location"
           />
         </form>
       </div>

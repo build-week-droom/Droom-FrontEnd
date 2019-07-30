@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 export default function JobCard({ job }) {
   const { id, title, description, location, company, email } = job
@@ -6,14 +7,21 @@ export default function JobCard({ job }) {
 
   useEffect(() => {
     axios
-      .get('`https://jobdroom.herokuapp.com/api/company/${id}`')
+      .get(`https://jobdroom.herokuapp.com/api/company/${id}`, {
+        headers: {
+          Authorization:
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTYsImVtYWlsIjoiakBlbWFpbC5jb20iLCJpc0NvbXBhbnkiOmZhbHNlLCJpYXQiOjE1NjQ0MzcxNDMsImV4cCI6MTU2NDUyMzU0M30.L8-UysPiWEVqECJDI0jrps6IB8SC5ZoJAx4mRJherSE'
+        }
+      })
       .then(response => {
-        setstate(response.data.results)
+        setCompanyInfo(response.data)
       })
       .catch(error => {
         console.error('Server Error: ', error)
       })
-  }, [])
+  }, [id])
+
+  console.log(companyInfo)
 
   return (
     <div className="job-card">
@@ -29,8 +37,8 @@ export default function JobCard({ job }) {
         {stars.map(star => (
           <div key={star} className='movie-star'>
             {star}
-          </div> */}
-      ))}
+          </div>
+      ))} */}
     </div>
   )
 }

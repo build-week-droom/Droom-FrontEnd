@@ -7,6 +7,8 @@ export const axiosAuth = () => {
       headers: {
           'Content-Type': 'application/json',
           Authorization: `${token}`
-      }
+      },
+      baseURL: 'https://jobdroom.herokuapp.com'
+    
   })
 }

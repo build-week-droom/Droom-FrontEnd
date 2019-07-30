@@ -20,8 +20,8 @@ function App() {
       <Link to='/register'>Register</Link>
       </div>
 
-      <Route exact path='/' component={LoginFormFormik} />
-      <Route path='/register' render={(props) => <LoginFormFormik {...props} setValue={setValue} />} />
+      <Route exact path='/' component={Register} />
+      {/* <Route path='/register' render={(props) => <LoginFormFormik {...props} setValue={setValue} />} /> */}
     </div>
   );
 }

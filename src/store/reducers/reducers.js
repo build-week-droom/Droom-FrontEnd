@@ -12,7 +12,7 @@ import {
 const initialSeekerState = {
   name: null,
   email: null,
-  isCompany: false,
+  isCompany: true,
   loading: false,
   error: null,
   msg: null,

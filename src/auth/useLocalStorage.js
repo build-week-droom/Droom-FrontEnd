@@ -1,25 +1,22 @@
-import { useState } from "react";
+import {useState} from 'react'
+                            // passing 2 parameters key, initialValue
+ export const useLocalStorage = (key, initialValue) => {
 
-const UseLocalStorage = (key, initialValue) => {
-    const [storedValue, setStoredValue] = useState(() => {
-        const item = window.localStorage.getItem(key);
-        if(item){
-            try {
-                return JSON.parse(item);
-            }catch{
-                return item;
-            }
-        }
-        return initialValue;
-    });
-    
-    const setValue = value => {
-        if(typeof value !== "string")
-            value = JSON.stringify(value);
-        window.localStorage.setItem(key, value);
-        setStoredValue(value);
-    };
-    
-    return [storedValue, setValue];
+
+  const [storedValue, setStoredValue] = useState(() => {
+      //  we're passing the key into the getItem method and assigning it to item
+    const item = localStorage.getItem(key);
+      // return item if not then return initialValue
+    return item ? item : initialValue;
+  });
+                  //passing value
+  const setValue = value => {
+    // setting the state by passing the value in it
+    setStoredValue(value);
+    // setting key and stringifying the value
+    localStorage.setItem(key, value);
+  };
+  return [storedValue, setValue];
 };
-export default UseLocalStorage;
+
+// const [storedToken, setToken] =useLocalStorage("token", token)

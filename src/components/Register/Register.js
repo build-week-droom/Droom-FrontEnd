@@ -28,6 +28,8 @@ const Register = props => {
     console.log('Register CLG:', initRegister)
   }
 
+
+
   return (
     <div>
       <h2>Register</h2>
@@ -55,29 +57,33 @@ const Register = props => {
         />
         <div className="ui toggle checkbox">
           <label>
-            <input
-              type="radio"
-              name="isCompany"
-              checked={initRegister.isCompany}
+            <input 
+              type='radio'
+              value="false"
+              name='isCompany'
+              checked={initRegister.isCompany === "false"}
               onChange={handleChanges}
             />
             Seeker
           </label>
-        </div>
-        <div className="ui toggle checkbox">
-          <label>
-            <input
-              type="radio"
-              name="isCompany"
-              checked={!initRegister.isCompany}
-              onChange={handleChanges}
-            />
-            Company
-          </label>
-        </div>
-        <button className="ui submit button" onClick={handleSubmit}>
-          Register
-        </button>
+          </div>
+          <div className='ui toggle checkbox'>
+            <label>
+            
+              <input 
+                type='radio'
+                name='isCompany'
+                // true.
+                value="true"
+                checked={initRegister.isCompany === "true"}
+                onChange={handleChanges}
+                />
+                Company
+            </label>
+          </div>
+          <button className="ui submit button" onClick={handleSubmit}>
+            Register
+          </button>
       </form>
     </div>
   )

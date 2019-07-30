@@ -13,7 +13,7 @@ function App() {
   //*----Dummy Data----*
   const [people, setPeople] = useState([
     {
-      id: 2,
+      id: 1,
       name: "notanthony",
       email: "anthony@mail.com",
       interests: "lego arms dealer",

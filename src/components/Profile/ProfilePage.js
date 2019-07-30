@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 //This is a dummy component with no API functionality ***
 const ProfilePage = props => {
   const { person } = props;
@@ -11,6 +12,7 @@ const ProfilePage = props => {
         <div>{person.interests}</div>
         <div>{person.pastExperience}</div>
         <div>{person.location}</div>
+        <Link to={`/edit/${person.id}`}>Edit</Link>
       </div>
     </div>
   );

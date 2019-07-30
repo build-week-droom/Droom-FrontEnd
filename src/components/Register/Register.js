@@ -51,7 +51,6 @@ const Register = (props) => {
           type='text'
           name='password'
           placeholder='Enter Password'
-          // false
           value={initRegister.password}
           onChange={handleChanges}
         />

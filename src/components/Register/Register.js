@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { addUser } from '../../store/actions/actions';
+import { addUser } from '../../store/actions/actions'
 
-const Register = (props) => {
+const Register = props => {
   const [initRegister, setInitRegister] = useState({
     name: '',
     email: '',
@@ -10,21 +10,22 @@ const Register = (props) => {
     isCompany: false
   })
 
-  const handleChanges = (e) => {
-    setInitRegister({...initRegister, [e.target.name]: e.target.value})
+  const handleChanges = e => {
+    setInitRegister({ ...initRegister, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = e => {
+    e.preventDefault()
     props.addUser(initRegister)
     console.log(initRegister)
 
-    setInitRegister({ 
-    name: '',
-    email: '',
-    password: '',
-    isCompany: false})
-    console.log("Register CLG:", initRegister)
+    setInitRegister({
+      name: '',
+      email: '',
+      password: '',
+      isCompany: false
+    })
+    console.log('Register CLG:', initRegister)
   }
 
 
@@ -33,28 +34,28 @@ const Register = (props) => {
     <div>
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
-        <input 
-          type='text'
-          name='name'
-          placeholder='Enter Name'
+        <input
+          type="text"
+          name="name"
+          placeholder="Enter Name"
           value={initRegister.name}
           onChange={handleChanges}
         />
-        <input 
-          type='text'
-          name='email'
-          placeholder='Enter Email'
+        <input
+          type="text"
+          name="email"
+          placeholder="Enter Email"
           value={initRegister.email}
           onChange={handleChanges}
         />
-        <input 
-          type='text'
-          name='password'
-          placeholder='Enter Password'
+        <input
+          type="text"
+          name="password"
+          placeholder="Enter Password"
           value={initRegister.password}
           onChange={handleChanges}
         />
-        <div className='ui toggle checkbox'>
+        <div className="ui toggle checkbox">
           <label>
             <input 
               type='radio'
@@ -62,8 +63,8 @@ const Register = (props) => {
               name='isCompany'
               checked={initRegister.isCompany === "false"}
               onChange={handleChanges}
-              />
-              Seeker
+            />
+            Seeker
           </label>
           </div>
           <div className='ui toggle checkbox'>
@@ -88,5 +89,7 @@ const Register = (props) => {
   )
 }
 
-
-export default connect(null, {addUser})(Register)
+export default connect(
+  null,
+  { addUser }
+)(Register)

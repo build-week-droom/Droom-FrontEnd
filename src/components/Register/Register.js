@@ -72,7 +72,7 @@ const Register = (props) => {
               <input 
                 type='radio'
                 name='isCompany'
-                // true
+                // true.
                 value="true"
                 checked={initRegister.isCompany === "true"}
                 onChange={handleChanges}

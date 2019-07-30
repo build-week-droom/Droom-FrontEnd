@@ -4,7 +4,7 @@ import { Route, Link } from 'react-router-dom'
 // import PrivateRoute from './auth/PrivateRoute'
 import LoginFormFormik from './components/Login/LoginForm'
 import Register from './components/Register/Register'
-import JobsList from './components/jobs/JobsList'
+import JobsList from './components/Jobs/JobsList'
 function App() {
   const [storedValue, setValue] = useLocalStorage('token')
 

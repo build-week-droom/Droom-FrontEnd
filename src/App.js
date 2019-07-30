@@ -7,7 +7,7 @@ import {
 // import PrivateRoute from './auth/PrivateRoute'
 import LoginFormFormik from './components/Login/LoginForm'
 import Register from './components/Register/Register'
-import CompanyProfiles from './components/CompanyProfiless'
+import CompanyProfiles from './components/CompanyProfiles'
 
 function App() {
 
@@ -24,7 +24,7 @@ function App() {
 
       <Route exact path='/login' render={(props) => <LoginFormFormik {...props} setValue={setValue} />} />
       <Route exact path='/register' component={Register} />
-      
+
     </div>
   );
 }

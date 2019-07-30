@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import JobCard from './JobCard'
 
-export default function JobsList(props) {
+export default function Jobs(props) {
   const [jobs, setJobs] = useState([])
   const [company, setCompany] = useState([])
 

@@ -1,15 +1,11 @@
 import {
-  ADD_SEEKER_START,
-  ADD_SEEKER_SUCCESS,
-  ADD_SEEKER_FAILURE,
-
-  ADD_COMPANY_START,
-  ADD_COMPANY_SUCCESS,
-  ADD_COMPANY_FAILURE
+  ADD_USER_START,
+  ADD_USER_SUCCESS,
+  ADD_USER_FAILURE,
 } from '../actions/actions'
 
 
-const initialSeekerState = {
+const initialUserState = {
   name: null,
   email: null,
   isCompany: true,
@@ -18,12 +14,12 @@ const initialSeekerState = {
   msg: null,
 }
 
-  export const reducers = (state = initialSeekerState, action) => {
+  export const reducers = (state = initialUserState, action) => {
   switch (action.type) {
-    case ADD_SEEKER_START:
+    case ADD_USER_START:
       return { ...state, loading:true }
     
-    case ADD_SEEKER_SUCCESS:
+    case ADD_USER_SUCCESS:
       return { 
         ...state,
         loading:false,
@@ -31,7 +27,7 @@ const initialSeekerState = {
         msg: action.payload
       }
 
-    case ADD_SEEKER_FAILURE:
+    case ADD_USER_FAILURE:
         return {
           ...state,
           loading: false,
@@ -39,24 +35,6 @@ const initialSeekerState = {
           msg: action.payload
         }
 
-        case ADD_COMPANY_START:
-      return { ...state, loading:true }
-    
-    case ADD_COMPANY_SUCCESS:
-      return { 
-        ...state,
-        loading:false,
-        ...action.payload,
-        msg: action.payload
-      }
-
-    case ADD_COMPANY_FAILURE:
-        return {
-          ...state,
-          loading: false,
-          error: true,
-          msg: action.payload
-        }
     default:
       return state
     }

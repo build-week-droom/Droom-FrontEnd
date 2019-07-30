@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { connect } from 'react-redux'
-import { addSeeker, addCompany } from '../../store/actions/actions';
+import { addUser } from '../../store/actions/actions';
 
 const Register = (props) => {
   const [initRegister, setInitRegister] = useState({
@@ -16,7 +16,7 @@ const Register = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.addSeeker(initRegister)
+    props.addUser(initRegister)
     console.log(initRegister)
 
     setInitRegister({ 
@@ -50,7 +50,7 @@ const Register = (props) => {
         <input 
           type='text'
           name='password'
-          placeholder='Emter Password'
+          placeholder='Enter Password'
           value={initRegister.password}
           onChange={handleChanges}
         />
@@ -59,7 +59,7 @@ const Register = (props) => {
             <input 
               type='radio'
               name='isCompany'
-              checked={!initRegister.isCompany}
+              checked={initRegister.isCompany}
               onChange={handleChanges}
               />
               Seeker
@@ -71,7 +71,7 @@ const Register = (props) => {
               <input 
                 type='radio'
                 name='isCompany'
-                checked={initRegister.isCompany}
+                checked={!initRegister.isCompany}
                 onChange={handleChanges}
                 />
                 Company
@@ -86,4 +86,4 @@ const Register = (props) => {
 }
 
 
-export default connect(null, {addSeeker, addCompany})(Register)
+export default connect(null, {addUser})(Register)

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 //This is a dummy component with no API functionality ***
 export const UserProfile = props => {
-  const { handleSubmit } = props;
+  const { setPeople, people } = props;
   const [person, setPerson] = useState({
     name: "",
     email: "",
@@ -11,12 +11,11 @@ export const UserProfile = props => {
     location: ""
   });
 
-  //   const handleSubmit = event => {
-  //     event.preventDefault();
-  //     submitPerson(person);
-  //     setPerson({name: "", email: "", interests: "", pastExperience: "", location: ""});
-
-  //   };
+  const handleSubmit = event => {
+    event.preventDefault();
+    //Adds a new person to the end of people array on submit
+    setPeople(people => [...people, person]);
+  };
 
   const handleChange = event => {
     setPerson({ ...person, [event.target.name]: event.target.value });
@@ -29,7 +28,7 @@ export const UserProfile = props => {
   return (
     <div className="main-wrapper">
       <div className="profile-container">
-        <h1>Create Your Profile Here!</h1>
+        <h1>Update Your Profile!</h1>
 
         <form onSubmit={handleSubmit}>
           <input

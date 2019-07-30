@@ -7,6 +7,8 @@ import {
 // import PrivateRoute from './auth/PrivateRoute'
 import LoginFormFormik from './components/Login/LoginForm'
 import Register from './components/Register/Register'
+import CompanyProfiles from './components/CompanyProfiless'
+
 function App() {
 
   const [storedValue, setValue] = useLocalStorage('token')
@@ -22,6 +24,7 @@ function App() {
 
       <Route exact path='/login' render={(props) => <LoginFormFormik {...props} setValue={setValue} />} />
       <Route exact path='/register' component={Register} />
+      
     </div>
   );
 }

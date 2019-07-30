@@ -16,6 +16,7 @@ ReactDOM.render(
 <Provider store={store}>
   <Router>
     <App />
+    {/* <CompanyProfiles /> */}
   </Router>
 </Provider>
 

@@ -16,12 +16,12 @@ function App() {
       {/* <LoginForm /> */}
 
       <div>
-      <Link to="/">Login</Link>
+      <Link to="/login">Login</Link>
       <Link to='/register'>Register</Link>
       </div>
 
-      <Route exact path='/' component={Register} />
-      {/* <Route path='/register' render={(props) => <LoginFormFormik {...props} setValue={setValue} />} /> */}
+      <Route exact path='/login' render={(props) => <LoginFormFormik {...props} setValue={setValue} />} />
+      <Route exact path='/register' component={Register} />
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { addSeeker, addCompany } from '../../store/actions/actions';
 
 const Register = (props) => {
-  const [initRegister, setRegister] = useState({
+  const [initRegister, setInitRegister] = useState({
     name: '',
     email: '',
     password: '',
@@ -11,16 +11,23 @@ const Register = (props) => {
   })
 
   const handleChanges = (e) => {
-    setRegister({...initRegister, [e.target.name]: e.target.value})
+    setInitRegister({...initRegister, [e.target.name]: e.target.value})
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     props.addSeeker(initRegister)
     console.log(initRegister)
+
+    setInitRegister({ 
+    name: '',
+    email: '',
+    password: '',
+    isCompany: false})
+    console.log("Register CLG:", initRegister)
   }
 
-
+  
 
   return (
     <div>
@@ -30,21 +37,21 @@ const Register = (props) => {
           type='text'
           name='name'
           placeholder='Enter Name'
-          value={props.name}
+          value={initRegister.name}
           onChange={handleChanges}
         />
         <input 
           type='text'
           name='email'
           placeholder='Enter Email'
-          value={props.email}
+          value={initRegister.email}
           onChange={handleChanges}
         />
         <input 
           type='text'
           name='password'
           placeholder='Emter Password'
-          value={props.password}
+          value={initRegister.password}
           onChange={handleChanges}
         />
         <div className='ui toggle checkbox'>
@@ -52,7 +59,8 @@ const Register = (props) => {
             <input 
               type='radio'
               name='isCompany'
-              checked={!props.isCompany}
+              checked={!initRegister.isCompany}
+              onChange={handleChanges}
               />
               Seeker
           </label>
@@ -63,7 +71,8 @@ const Register = (props) => {
               <input 
                 type='radio'
                 name='isCompany'
-                checked={props.isCompany}
+                checked={initRegister.isCompany}
+                onChange={handleChanges}
                 />
                 Company
             </label>

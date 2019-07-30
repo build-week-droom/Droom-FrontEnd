@@ -26,7 +26,7 @@ function App() {
         render={props => <LoginFormFormik {...props} setValue={setValue} />}
       />
       <Route exact path="/register" component={Register} />
-      <Route path="jobslist" component={JobsList} />
+      <Route path="/jobslist" component={JobsList} />
     </div>
   )
 }

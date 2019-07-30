@@ -27,7 +27,7 @@ const Register = (props) => {
     console.log("Register CLG:", initRegister)
   }
 
-  
+
 
   return (
     <div>
@@ -51,6 +51,7 @@ const Register = (props) => {
           type='text'
           name='password'
           placeholder='Enter Password'
+          // false
           value={initRegister.password}
           onChange={handleChanges}
         />
@@ -58,8 +59,9 @@ const Register = (props) => {
           <label>
             <input 
               type='radio'
+              value="false"
               name='isCompany'
-              checked={initRegister.isCompany}
+              checked={initRegister.isCompany === "false"}
               onChange={handleChanges}
               />
               Seeker
@@ -71,7 +73,9 @@ const Register = (props) => {
               <input 
                 type='radio'
                 name='isCompany'
-                checked={!initRegister.isCompany}
+                // true
+                value="true"
+                checked={initRegister.isCompany === "true"}
                 onChange={handleChanges}
                 />
                 Company

@@ -21,7 +21,7 @@ const RegisterSchema = Yup.object().shape({
     .oneOf([true, false], "Select if you're either a company or a user")
 });
 
-const RegisterForm = ({props, values, errors, touched, isSubmitting}) => {
+const RegisterForm = (props,{ errors, touched, isSubmitting}) => {
   // hook that holds the initial state(initLogin)
   // useState sets initLogin to an object which is email and password and they are empty strings
 

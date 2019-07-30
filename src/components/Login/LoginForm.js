@@ -1,91 +1,79 @@
 import React,{useState} from 'react'
 import { Form, Field, Formik, yupToFormErrors, withFormik } from "formik";
 import * as Yup from "yup";
-import useLocalStorage from '../../auth/useLocalStorage'
+import {useLocalStorage} from '../../auth/useLocalStorage'
 import { axiosAuth } from '../../auth/axiosAuth';
+import { axiosInstance } from '../../auth/helpers';
 
 
-// // Object Schema Validator
-// const LoginSchema = Yup.object().shape({
-//   email: Yup.string(),
-//   password: Yup.string()
-// });
+function LoginForm({ props, values, errors, touched, isSubmitting}) {
+  // console.log('values:', values)
 
-const LoginForm = ({props, values, errors, touched, isSubmitting}) => {
-  // hook that holds the initial state(initLogin)
-  // useState sets initLogin to an object which is email and password and they are empty strings
-
-  const [initLogin, setLogin] = useState({
-    email: '',
-    password: ''
-  })
-
-  // const [storedToken, setToken] = useLocalStorage('token')
+  const setToken = useLocalStorage("token")
+  
   return (
-    <div>
 
-      <div>
-        <label>
+  <div className="ui centered grid container">
+    <Form className="page-login ">
+     <div className="ui icon warning message">
+      <div className="nine wide column">
+
+      <div >
         {touched.email && errors.email && <p>{errors.email}</p>}
-          <Field 
-            type='email' 
-            name='email'
-            placeholder='enter email'
-            /> 
-        </label>
+        <Field  className="field" type="text" name="email" placeholder="email" />
       </div>
 
       <div>
-        <label>
         {touched.password && errors.password && <p>{errors.password}</p>}
-          <Field 
-            type='password' 
-            name='password'
-            placeholder='enter password'
-            /> 
-        </label>
+        <Field  className="field" type="password" name="password" placeholder="Password" />
       </div>
-    <button className='ui primary labeled icon button' disabled={isSubmitting} type='submit'>
-    <i className="unlock alternate icon"></i>
-      Register
-    </button>
-    </div>
-  )
+
+      <div>
+
+      <button className="ui primary labeled icon button" style={{textAlign:'center'}}disabled={isSubmitting} type='submit'> <i className="unlock alternate icon"></i>
+                Loginr</button>
+      </div>
+        
+      </div>
+     </div>
+    </Form>
+  </div>
+  );
 }
 
-
-const LoginFormFormik = withFormik({
+const FormikLoginForm = withFormik({
   mapPropsToValues({ email, password}) {
     return {
-      email: email || '',
-      password: password || ''
-    }
+      email: email || "",
+      password: password || ""
+    };
   },
   validationSchema: Yup.object().shape({
     email: Yup.string()
-    .email('email is not valid')
-    .required('email required'),
-    
+    .required('Name is required.'),
     password: Yup.string()
-    .required('password required')
+     .required('Password is required'),
   }),
-  handleSubmit(values, { props, resetForm,setErrors,setSubmitting}) {
-    console.log('hello')
-    
-    axiosAuth()
-      .post('/api/auth/login', values)
+  handleSubmit(values, { props, resetForm, setErrors, setSubmitting }) {
+    console.log(values)
+    console.log('object')
+      axiosAuth()
+        axiosInstance
+        .post('/api/auth/login', values)
         .then(res => {
-          console.log(res)
-            props.setToken(res.data.token)
-            resetForm()
-            setSubmitting(false)
+          console.log(res); // Data was created successfully and logs to console
+
+          props.setToken(res.data.token)
+          console.log(res.data.token)
+          props.history.push('/profile')
+          resetForm();
+          setSubmitting(false);
         })
         .catch(err => {
-          console.log(err => {
-            console.log(err)
-          })
-        })
+          console.log(err); // There was an error creating the data and logs to console
+          setSubmitting(false);
+        });
   }
-})(LoginForm)
+})(LoginForm);
 
-export default LoginFormFormik
+export default FormikLoginForm;

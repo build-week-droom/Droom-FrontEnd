@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
-import {axiosAuth} from '../../auth/axiosAuth'
+import {axiosAuth} from '../../../auth/axiosAuth'
 
 
 // Object Schema Validator

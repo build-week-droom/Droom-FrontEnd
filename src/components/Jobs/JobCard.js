@@ -8,7 +8,11 @@ export default function JobCard({ job }) {
   return (
     <div className="job-card">
       <Card>
-        <Image src="../../assets/images/laserCycle.jpg" wrapped ui={false} />
+        <Image
+          src="https://media.superpages.com/media/photos/00/16/82/41/75/images/012942721b799dcc3cdc5879624e03c3.jpg"
+          wrapped
+          ui={false}
+        />
         <Card.Content>
           <Card.Header>{company}</Card.Header>
           <Card.Meta>

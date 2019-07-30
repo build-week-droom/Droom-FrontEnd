@@ -56,7 +56,7 @@ function App() {
         render={props => people.map(person => <ProfilePage person={person} />)}
       />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

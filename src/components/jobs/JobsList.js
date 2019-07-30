@@ -24,9 +24,9 @@ export default function JobsList(props) {
   console.log(jobs)
   return (
     <div className="jobs-list">
-      {/* {jobs.map(job => (
+      {jobs.map(job => (
         <JobCard key={job.id} job={job} />
-      ))} */}
+      ))}
     </div>
   )
 }

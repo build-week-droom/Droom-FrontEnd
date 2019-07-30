@@ -1,44 +1,29 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+// Import dependencies
+import React from 'react'
+import { Card, Icon, Image } from 'semantic-ui-react'
 
 export default function JobCard({ job }) {
-  const { id, title, description, location, company, email } = job
-  const [companyInfo, setCompanyInfo] = useState()
-
-  useEffect(() => {
-    axios
-      .get(`https://jobdroom.herokuapp.com/api/company/${id}`, {
-        headers: {
-          Authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTYsImVtYWlsIjoiakBlbWFpbC5jb20iLCJpc0NvbXBhbnkiOmZhbHNlLCJpYXQiOjE1NjQ0MzcxNDMsImV4cCI6MTU2NDUyMzU0M30.L8-UysPiWEVqECJDI0jrps6IB8SC5ZoJAx4mRJherSE'
-        }
-      })
-      .then(response => {
-        setCompanyInfo(response.data)
-      })
-      .catch(error => {
-        console.error('Server Error: ', error)
-      })
-  }, [id])
-
-  console.log(companyInfo)
+  const { title, description, location, company, email } = job
 
   return (
     <div className="job-card">
-      <h2 className="job-title">{title}</h2>
-      {/* <div className=''>
-          Director: <em>{director}</em>
-        </div>
-        <div className='movie-metascore'>
-          Metascore: <strong>{metascore}</strong>
-        </div>
-        <h3>Actors</h3>
-
-        {stars.map(star => (
-          <div key={star} className='movie-star'>
-            {star}
-          </div>
-      ))} */}
+      <Card>
+        <Image src="../../assets/images/laserCycle.jpg" wrapped ui={false} />
+        <Card.Content>
+          <Card.Header>{company}</Card.Header>
+          <Card.Meta>
+            <span className="location">{location}</span>
+          </Card.Meta>
+          <Card.Header></Card.Header>
+          <Card.Description>{description}</Card.Description>
+        </Card.Content>
+        <Card.Content extra>
+          <a>
+            <Icon name="user" />
+            22 Friends
+          </a>
+        </Card.Content>
+      </Card>
     </div>
   )
 }

@@ -9,7 +9,7 @@ import { axiosInstance } from '../../auth/helpers';
 function LoginForm({ props, values, errors, touched, isSubmitting}) {
   // console.log('values:', values)
 
-  const setToken = useLocalStorage("token")
+  const setValue = useLocalStorage("token")
   
   return (
 
@@ -58,12 +58,11 @@ const FormikLoginForm = withFormik({
     console.log(values)
     console.log('object')
       axiosAuth()
-        axiosInstance
         .post('/api/auth/login', values)
         .then(res => {
           console.log(res); // Data was created successfully and logs to console
 
-          props.setToken(res.data.token)
+          props.setValue(res.data.token)
           console.log(res.data.token)
           props.history.push('/profile')
           resetForm();

@@ -9,7 +9,7 @@ import LoginFormFormik from './components/Login/LoginForm'
 import Register from './components/Register/Register'
 function App() {
 
-  const [storedToken, setToken] = useLocalStorage('token')
+  const [storedValue, setValue] = useLocalStorage('token')
 
   return (
     <div className="App">
@@ -21,7 +21,7 @@ function App() {
       </div>
 
       <Route exact path='/' component={LoginFormFormik} />
-      <Route path='/register' render={(props) => <LoginFormFormik {...props} setToken={setToken} />} />
+      <Route path='/register' render={(props) => <LoginFormFormik {...props} setValue={setValue} />} />
     </div>
   );
 }

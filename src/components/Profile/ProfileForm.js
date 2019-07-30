@@ -60,10 +60,6 @@ export const UserProfile = props => {
   //   .then(res => console.log(res.data));
   // }, []);
 
-  {
-    people.map(person => <ProfilePage person={person} />);
-  }
-
   return (
     <div className="main-wrapper">
       <div className="profile-container">

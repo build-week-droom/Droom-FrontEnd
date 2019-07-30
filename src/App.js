@@ -1,5 +1,5 @@
 import React from 'react';
-import useLocalStorage from './auth/useLocalStorage'
+import {useLocalStorage} from './auth/useLocalStorage'
 import {
   Route,
   Link

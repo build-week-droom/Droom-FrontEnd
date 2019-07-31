@@ -25,14 +25,23 @@ export const addUser = (newUser) => dispatch => {
     }
 
     // USED IN LOGIN FORM
-  export const CHECK_USER_START = 'CHECK_USER_START'
-  export const CHECK_USER_SUCCESS  = 'CHECK_USER_SUCCESS'
-  export const CHECK_USER_FAILURE  = 'CHECK_USER_FAILURE'
+  export const LOGIN_USER_START = 'LOGIN_USER_START'
+  export const LOGIN_USER_SUCCESS  = 'LOGIN_USER_SUCCESS'
+  export const LOGIN_USER_FAILURE  = 'LOGIN_USER_FAILURE'
 
-  export const userCheck = (isCompany) => dispatch => {
-    dispatch({type: CHECK_USER_START, payload: isCompany})
-      axiosAuth(localStorage.getItem('isCompany'))
-
+  export const userLogin = (cred) => dispatch => {
+    dispatch({type: LOGIN_USER_START})
+      return axiosAuth()
+        .post('/api/auth/login', cred)
+          .then(res => {
+            console.log('clg login res from acitons: ',res)
+            localStorage.setItem('token', res.data.token)
+            dispatch({type: LOGIN_USER_SUCCESS, payload: res.data.body})
+          })
+          .catch(err => {
+            console.log(err)
+            dispatch({type: LOGIN_USER_FAILURE, payload: err.msg})
+          })
   }
 
 

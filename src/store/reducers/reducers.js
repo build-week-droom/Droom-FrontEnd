@@ -3,9 +3,9 @@ import {
   ADD_USER_SUCCESS,
   ADD_USER_FAILURE,
 
-  CHECK_USER_START,
-  CHECK_USER_SUCCESS,
-  CHECK_USER_FAILURE,
+  LOGIN_USER_START,
+  LOGIN_USER_SUCCESS,
+  LOGIN_USER_FAILURE,
 
   SEARCH,FILTER
 } from '../actions/actions'
@@ -41,11 +41,29 @@ const initialUserState = {
           msg: action.payload
         }
         
-    case CHECK_USER_START:
+    case LOGIN_USER_START:
         return {
           ...state,
-          isCompany:action.payload
+          isLoading: false,
+          isLoggingIn: false,
+          email:action.payload,
+          password:action.payload
         }
+    case LOGIN_USER_SUCCESS:
+          return { 
+            ...state,
+            loading:false,
+            ...action.payload,
+            msg: action.payload
+          }
+    
+    case LOGIN_USER_FAILURE:
+      return {
+              ...state,
+              loading: false,
+              error: true,
+              msg: action.payload
+            }
 
     case SEARCH:
           return {

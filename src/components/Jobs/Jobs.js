@@ -43,7 +43,7 @@ export default function Jobs(props) {
   console.log('company profiles: ', company)
 
   return (
-    <div className="jobs-list">
+    <div className="jobs-list grid">
       {jobs.map(job => (
         <JobCard key={job.id} job={job} />
       ))}

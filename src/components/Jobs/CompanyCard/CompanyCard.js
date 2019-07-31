@@ -1,23 +1,21 @@
 import React from 'react';
+import { Card, Image } from 'semantic-ui-react'
 
-const CompanyCard = (props) => {
+export default function CompanyCard({ company }) {
+  const { name, email, about, location, profileImg } = company
 
-    const { name, location, email, about } = props;
+  return (
+    <div className="company-card">
+      <Card>
+        <Image src={profileImg} />
+      </Card>
+      <Card.Content>
+        <Card.Header>{name}</Card.Header>
+        <Card.Content>{about}</Card.Content>
+        <Card.Meta>{location}</Card.Meta>
+        <Card.Meta>{email}</Card.Meta>
+      </Card.Content>
+    </div>
 
-    return (
-      <div className = "company-card">
-        <h1>{name}</h1>
-        <div>
-          Location: {location}
-        </div>
-        <div>
-          Email: {email}
-        </div>
-        <div>
-          About Us: {about}
-        </div>
-      </div>
-    )
-};
-
-export default CompanyCard;
+  )
+}

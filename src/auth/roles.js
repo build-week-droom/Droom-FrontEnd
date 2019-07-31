@@ -1,4 +1,3 @@
 export default {
-  seeker: false,
-  company: true
+  isCompany: false
 }

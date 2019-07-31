@@ -2,16 +2,10 @@ import React, { useState } from "react";
 import { useLocalStorage } from "./auth/useLocalStorage";
 import { Route, Link } from "react-router-dom";
 // import PrivateRoute from './auth/PrivateRoute'
-<<<<<<< HEAD
-import LoginFormFormik from './components/Login/LoginForm'
-import Register from './components/Register/Register'
-import CompanyProfiles from './components/CompanyProfiles'
-=======
-import LoginFormFormik from "./components/Login/LoginForm";
-import Register from "./components/Register/Register";
-import ProfilePage from "./components/Profile/ProfilePage";
-import ProfileForm from "./components/Profile/ProfileForm";
->>>>>>> cb71e59355847cb62708062794427e55900d6fe7
+import LoginFormFormik from './components/Login/LoginForm';
+import Register from './components/Register/Register';
+import ProfilePage from './components/Profile/ProfilePage';
+import ProfileForm from './components/Profile/ProfileForm';
 
 function App() {
   const [storedValue, setValue] = useLocalStorage("token");
@@ -43,11 +37,6 @@ function App() {
         <Link to="/profile">Profile</Link>
       </div>
 
-<<<<<<< HEAD
-      <Route exact path='/login' render={(props) => <LoginFormFormik {...props} setValue={setValue} />} />
-      <Route exact path='/register' component={Register} />
-
-=======
       <Route
         exact
         path="/login"
@@ -66,7 +55,6 @@ function App() {
         path="/profile"
         render={props => people.map(person => <ProfilePage person={person} />)}
       />
->>>>>>> cb71e59355847cb62708062794427e55900d6fe7
     </div>
   )
 }

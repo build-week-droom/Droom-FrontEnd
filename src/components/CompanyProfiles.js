@@ -12,12 +12,7 @@ export default function CompanyProfiles(props) {
     useEffect(() => {
         const getCompanies = () => {
             //.get axios get request here 
-            axios.get(`https://jobdroom.herokuapp.com/api/company`, {
-                headers: {        
-                    Authorization: 
-                    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ0cmFjaWVAZW1haWwuY29tIiwiaXNDb21wYW55IjpmYWxzZSwiaWF0IjoxNTY0NTIwNjAxLCJleHAiOjE1NjQ2MDcwMDF9.ClC2Lihj_1VP5O0Af-HQeIqwkLEGi-U8xZahILInXEc"
-                    }
-                })
+            axios.get(`https://jobdroom.herokuapp.com/api/company`)
                 .then(results => {
                     setCompanies(results.data);
                 })
@@ -30,12 +25,7 @@ export default function CompanyProfiles(props) {
     console.log('Companies Available: ', companies);
 
     useEffect(() => {
-        axios.get(`https://jobdroom.herokuapp.com/api/company/id`, {
-            headers: {
-                Authorization: 
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ0cmFjaWVAZW1haWwuY29tIiwiaXNDb21wYW55IjpmYWxzZSwiaWF0IjoxNTY0NTIwNjAxLCJleHAiOjE1NjQ2MDcwMDF9.ClC2Lihj_1VP5O0Af-HQeIqwkLEGi-U8xZahILInXEc"
-                }
-            })
+        axios.get(`https://jobdroom.herokuapp.com/api/company/id`)
             .then(results => {
                 setCompanies(results.data)
             })

@@ -69,8 +69,8 @@ export const LOAD_USER_FAILURE = 'LOAD_USER_FAILURE'
 export const loadUserInfo = id => dispatch => {
   // const token = localStorage.getItem("token");
   dispatch({ type: LOAD_USER_START });
-  return axiosInstance
-    .get(`/api/seekers/${id}`)
+  return axiosAuth()
+    .get(`/api/seekers/`)
     .then(res => {
       dispatch({
         type: LOAD_USER_SUCCESS,

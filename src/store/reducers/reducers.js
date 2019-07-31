@@ -7,7 +7,12 @@ import {
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAILURE,
 
-  SEARCH,FILTER
+  LOAD_USER_START,
+  LOAD_USER_SUCCESS,
+  LOAD_USER_FAILURE,
+
+  SEARCH,
+  FILTER,
 } from '../actions/actions'
 
 
@@ -64,7 +69,21 @@ const initialUserState = {
               error: true,
               msg: action.payload
             }
-
+            case LOAD_USER_START:
+                return { 
+                  ...state, loading: true
+                 }
+          
+     case LOAD_USER_SUCCESS:
+        return {
+          ...state,
+          loading: false,
+          ...action.payload,
+           msg: action.payload,
+          }
+          
+    case LOAD_USER_FAILURE:
+      return { ...state, loading: false, error: true, msg: action.payload }
     case SEARCH:
           return {
             ...state,

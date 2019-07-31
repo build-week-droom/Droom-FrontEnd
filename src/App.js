@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useLocalStorage } from './auth/useLocalStorage'
 import { Route, Link } from 'react-router-dom'
-// import PrivateRoute from './auth/PrivateRoute'
+import PrivateRoute from './auth/PrivateRoute'
 import LoginFormFormik from './components/Login/LoginForm'
 import Register from './components/Register/Register'
 import ProfilePage from './components/Profile/ProfilePage'
@@ -46,19 +46,19 @@ function App() {
       />
       <Route exact path="/register" component={Register} />
 
-      <Route
+      <PrivateRoute
         exact
         path="/update"
         render={props => <ProfileForm {...props} submitPerson={addPerson} />}
       />
 
-      <Route
+      <PrivateRoute
         exact
         path="/profile"
         render={props => people.map(person => <ProfilePage person={person} />)}
       />
 
-      <Route exact path="/jobs" component={Jobs} />
+      <PrivateRoute exact path="/jobs" component={Jobs} />
     </div>
   )
 }

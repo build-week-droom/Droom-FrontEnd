@@ -2,9 +2,14 @@
 import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
 
+// Create JobCard component
 export default function JobCard({ job }) {
-  const { title, description, location, company, email } = job
+  // Destructure props
+  const { title, description, location, company, companyId } = job
 
+  // Get / Set card color based on company name *experimental with seed data* company colors: GE - yellow, laser
+
+  // Build JobCard utilizing semantic-ui-react <Card /> & props
   return (
     <Card className="job-card">
       <Image
@@ -13,18 +18,24 @@ export default function JobCard({ job }) {
         wrapped
         ui={false}
       />
-      <Card.Content>
-        <Card.Header className="job-card-title">{company}</Card.Header>
+      <Card.Content className="job-card-main-content">
+        <Card.Header className="job-card-company">{company}</Card.Header>
         <Card.Meta>
-          <span className="job-card-company">{location}</span>
+          <span className="job-card-location">{location}</span>
         </Card.Meta>
-        <Card.Header>{title}</Card.Header>
-        <Card.Description>{description}</Card.Description>
+        <Card.Header className="job-card-title">{title}</Card.Header>
+        <Card.Description className="job-card-description">
+          {description}
+        </Card.Description>
       </Card.Content>
-      <Card.Content extra>
+      <Card.Content extra className="job-card-selection">
         <a>
           <Icon name="user" />
-          22 Friends
+          Yeah Baby!
+        </a>
+        <a>
+          <Icon name="user" />
+          Hell No!
         </a>
       </Card.Content>
     </Card>

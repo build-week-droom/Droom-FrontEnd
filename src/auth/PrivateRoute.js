@@ -17,16 +17,15 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       console.log('clg user.isco:  ', user.isCompany)
       if (!currentUser ) {
         return <Redirect to={routes.login} />;
-      } if (user.isCompany === roles.isCompany) {
+      } else if(user.isCompany === roles.isCompany) {
         return <Redirect to={routes.profile} />
       }
-      else {
-        if (user.role !== roles.company) {
-          return <Redirect to={routes.home}/>;
-        }
-      }
+      // if (user.role !== roles.company) {
+      //     return <Redirect to={routes.home}/>;
+      //   }
+      
 
-      return <Component {...props} />;
+      // return <Component {...props} />;
     }}
   />
 );

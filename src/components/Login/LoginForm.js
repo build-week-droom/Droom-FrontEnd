@@ -70,12 +70,13 @@ const FormikLoginForm = withFormik({
           console.log(res.data.token)
           // console.log('decodedToken: ', decodeToken())
           const {isCompany} = decodeToken() 
+          console.log('clg isCompany LoginForm: ', isCompany)
           if (isCompany === false){
-            console.log('CLG propsIC in LOGINFORM', props.isCompany)
+            console.log('CLG propsIC in LOGINFORM', props)
             
-            props.history.push('/profile')
+              props.history.push('/profile')
           } else {
-            props.history.push('/CompanyProfile')
+              props.history.push('/CompanyProfile')
           }
           resetForm();
           setSubmitting(false);

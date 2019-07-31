@@ -1,5 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {loadUserInfo} from '../../store/actions/actions'
+import {connect} from 'react-redux'
+// import { Link } from "react-router-dom";
 //This is a dummy component with no API functionality ***
 // const ProfilePage =({ people}) => {
  
@@ -31,4 +33,4 @@ const ProfilePage = () => {
     <div>Profile</div>
   )
 }
-export default ProfilePage;
+export default connect(null,{loadUserInfo})(ProfilePage);

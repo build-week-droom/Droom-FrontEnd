@@ -48,15 +48,16 @@ function App() {
 
       <PrivateRoute
         exact
+        path="/profile"
+        component={ProfilePage}
+      />
+      
+      <PrivateRoute
+        exact
         path="/update"
         render={props => <ProfileForm {...props} submitPerson={addPerson} />}
       />
 
-      <PrivateRoute
-        exact
-        path="/profile"
-        render={props => people.map(person => <ProfilePage person={person} />)}
-      />
 
       <PrivateRoute exact path="/jobs" component={Jobs} />
     </div>

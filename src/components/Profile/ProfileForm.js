@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ProfilePage from "./ProfilePage";
 
-import {connect} from 'react-redux'
-import { loadUserInfo } from '../../store/actions/actions'
+// import {connect} from 'react-redux'
+// import { loadUserInfo } from '../../store/actions/actions'
 
 //This is a dummy component with no API functionality ***
 const UserProfile = props => {
@@ -115,4 +115,4 @@ const UserProfile = props => {
   );
 };
 
-export default connect(null, {loadUserInfo})(UserProfile);
+export default (UserProfile);

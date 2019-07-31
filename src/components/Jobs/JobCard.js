@@ -26,40 +26,34 @@ export default function JobCard({ job }) {
 
   // Get / set company logo
   let logo = ''
-  if (logoUrl)
+  if (logoUrl.hasOwnProperty(company)) {
+    logo = logoUrl[company]
+  }
 
-  /* 
-  Get / Set card color based on company name *experimental with seed data*. Possibly use to highlight cards based on job category or company.
-    company colors: Andela - teal 
-                    Epic Flight Academy - aqua 
-                    GE - blue,  
-                    Impulsion Marketing - gold
-                    La Causa - red 
-                    LaserCycle - greenyellow 
-                    Paystack Nigeria - cyan 
-  */
+  // Get / Set card color based on company name *experimental with seed data*. Possibly use to highlight cards based on job category or company.
+
   let jobCardHighlight = ''
   switch (company) {
     case 'Andela':
       jobCardHighlight = 'teal'
       break
     case 'Epic Flight Academy':
-      jobCardHighlight = 'aqua'
+      jobCardHighlight = 'purple'
       break
     case 'GE':
       jobCardHighlight = 'blue'
       break
     case 'Impulsion Marketing Group':
-      jobCardHighlight = 'gold'
+      jobCardHighlight = 'yellow'
       break
     case 'La Causa, Inc':
       jobCardHighlight = 'red'
       break
     case 'LaserCycle USA':
-      jobCardHighlight = 'greenyellow'
+      jobCardHighlight = 'green'
       break
     case 'Paystack Nigeria':
-      jobCardHighlight = 'cyan'
+      jobCardHighlight = 'violet'
       break
     default:
       jobCardHighlight = 'gray'
@@ -68,12 +62,7 @@ export default function JobCard({ job }) {
   // Build JobCard utilizing semantic-ui-react <Card /> & props
   return (
     <Card className="job-card" color={jobCardHighlight}>
-      <Image
-        className="job-card-image"
-        src="https://media.superpages.com/media/photos/00/16/82/41/75/images/012942721b799dcc3cdc5879624e03c3.jpg"
-        wrapped
-        ui={false}
-      />
+      <Image className="job-card-image" src={logo} wrapped ui={false} />
       <Card.Content className="job-card-main-content">
         <Card.Header className="job-card-company">{company}</Card.Header>
         <Card.Meta>

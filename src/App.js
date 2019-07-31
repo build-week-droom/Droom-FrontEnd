@@ -8,6 +8,7 @@ import Register from './components/Register/Register'
 import ProfilePage from './components/Profile/ProfilePage'
 import ProfileForm from './components/Profile/ProfileForm'
 import Jobs from './components/Jobs/Jobs'
+import Company from './components/Jobs/CompanyCard/Company'
 
 function App() {
   const [storedValue, setValue] = useLocalStorage('token')
@@ -36,7 +37,7 @@ function App() {
         <Link to="/update">Update Profile</Link>
         <Link to="/profile">Profile</Link>
         <Link to="/jobs">Jobs</Link>
-        <Link to="/company-card">Company Card</Link>
+        <Link to="/company-card ">Company Card</Link>
       </div>
 
       <Route
@@ -60,6 +61,12 @@ function App() {
       <Route exact path="/jobs" component={Jobs} />
       {/* THIS IS GOES WITH JOBS. ITS A COMPANY CARD THAT DISPLAYS WHEN YOU SELECT A JOB */}
       <Route exact path="/company-card" component={CompanyProfiles} />
+      {/* <Route
+        path="/company/:id"
+        render={props => {
+          return <Company {...props} />
+        }}
+      /> */}
     </div>
   )
 }

@@ -1,5 +1,6 @@
 // Import dependencies
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Card, Icon, Image } from 'semantic-ui-react'
 
 // Create JobCard component
@@ -74,14 +75,16 @@ export default function JobCard({ job }) {
         </Card.Description>
       </Card.Content>
       <Card.Content extra className="job-card-selection">
-        <a>
-          <Icon name="user" />
-          Yeah Baby!
-        </a>
-        <a>
+        <Link to={`/company/${companyId}`}>
+          <div>
+            <Icon name="user" />
+            Yeah Baby!
+          </div>
+        </Link>
+        <div>
           <Icon name="user" />
           Hell No!
-        </a>
+        </div>
       </Card.Content>
     </Card>
   )

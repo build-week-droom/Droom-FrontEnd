@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 import { Card, Image, Icon } from 'semantic-ui-react'
 
 export default function CompanyCard({ company }) {
-  const { name, email, about, location, profileImg } = company
+  const { id, name, email, about, location, profileImg } = company
 
   const logoUrl = {
     Andela: 'https://cutlerpr.co/images/case-studies/andela-logo.png',
@@ -28,7 +28,7 @@ export default function CompanyCard({ company }) {
 
   return (
     <Card className="company-card">
-        <Image className="job-card-image" src={logo} wrapped ui={false} />
+      <Image className="job-card-image" src={logo} wrapped ui={false} />
       <Card.Content>
         <Card.Header>{name}</Card.Header>
         <Card.Content>{about}</Card.Content>
@@ -36,6 +36,5 @@ export default function CompanyCard({ company }) {
         <Card.Meta>{email}</Card.Meta>
       </Card.Content>
     </Card>
-
   )
 }

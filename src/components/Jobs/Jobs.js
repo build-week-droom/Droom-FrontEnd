@@ -15,7 +15,7 @@ export default function Jobs(props) {
       .get('https://jobdroom.herokuapp.com/api/jobs', {
         headers: {
           Authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJqYXNvbkBlbWFpbC5jb20iLCJpc0NvbXBhbnkiOmZhbHNlLCJpYXQiOjE1NjQ1MjUwNjMsImV4cCI6MTU2NDYxMTQ2M30.xXkYeD5omzvCiOVNTAE9uQA-eCudvgfVEpl4xR1hLSI'
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJqYXNvbkBlbWFpbC5jb20iLCJpc0NvbXBhbnkiOmZhbHNlLCJpYXQiOjE1NjQ2MDc4OTMsImV4cCI6MTU2NTIxMjY5M30.ZJQL6V4L9YwORWq1034Y2wkQEuBcvtGiE68qW2ABdZs'
         }
       })
       // Set state

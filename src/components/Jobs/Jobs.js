@@ -8,12 +8,7 @@ export default function Jobs(props) {
 
   useEffect(() => {
     axios
-      .get('https://jobdroom.herokuapp.com/api/jobs', {
-        headers: {
-          Authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJqYXNvbkBlbWFpbC5jb20iLCJpc0NvbXBhbnkiOmZhbHNlLCJpYXQiOjE1NjQ1MjUwNjMsImV4cCI6MTU2NDYxMTQ2M30.xXkYeD5omzvCiOVNTAE9uQA-eCudvgfVEpl4xR1hLSI'
-        }
-      })
+      .get('https://jobdroom.herokuapp.com/api/jobs')
       .then(response => {
         setJobs(response.data)
       })
@@ -26,12 +21,7 @@ export default function Jobs(props) {
 
   useEffect(() => {
     axios
-      .get('https://jobdroom.herokuapp.com/api/company', {
-        headers: {
-          Authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJqYXNvbkBlbWFpbC5jb20iLCJpc0NvbXBhbnkiOmZhbHNlLCJpYXQiOjE1NjQ1MjUwNjMsImV4cCI6MTU2NDYxMTQ2M30.xXkYeD5omzvCiOVNTAE9uQA-eCudvgfVEpl4xR1hLSI'
-        }
-      })
+      .get('https://jobdroom.herokuapp.com/api/company')
       .then(response => {
         setCompany(response.data)
       })

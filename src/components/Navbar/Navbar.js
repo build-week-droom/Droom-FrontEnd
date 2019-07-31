@@ -1,18 +1,32 @@
 import React, { useState, Component } from "react";
-import { Dropdown, Icon, Input, Menu } from "semantic-ui-react";
+import { NavLink } from "react-router-dom";
+import "../../stylesheets/components/navbar.scss";
 
-export const Navbar = () => {
-  const [activeItem, setActiveItem] = useState();
+// import { Dropdown, Icon, Input, Menu } from "semantic-ui-react";
+
+const Navbar = ({ links }) => {
+  //   const [activeItem, setActiveItem] = useState();
   //   state = {}
   // handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
-  const handleItemClick = (event, { name }) => {
-    setActiveItem({ activeItem: name });
-  };
+  //   const handleItemClick = (event, { name }) => {
+  //     setActiveItem({ activeItem: name });
+  //   };
 
   return (
-    <div>
-      <Menu>
+    <nav className="navbar">
+      {links.map((l, idx) => (
+        <NavLink key={idx} to={`/${l.toLowerCase()}/`}>
+          {l}
+        </NavLink>
+      ))}
+    </nav>
+  );
+};
+export default Navbar;
+
+{
+  /* <Menu>
         <Menu.Item header>Welcome to Droom</Menu.Item>
         <Menu.Item
           name="login"
@@ -35,8 +49,5 @@ export const Navbar = () => {
           active={activeItem === "profile"}
           onClick={handleItemClick}
         />
-      </Menu>
-    </div>
-  );
-};
-export default Navbar;
+      </Menu> */
+}

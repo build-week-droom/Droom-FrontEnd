@@ -11,12 +11,13 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       const currentUser = getToken();
       const user = decodeToken(currentUser);
       // const {isCompany} = decodeToken()
-
+      console.log('clg user: ', user)
+      console.log('roles.isCompanmy: ', roles.isCompany)
       console.log('PRIVATE ROUTE DECODETOKEN:  ', decodeToken(currentUser))
       console.log('clg user.isco:  ', user.isCompany)
       if (!currentUser ) {
         return <Redirect to={routes.login} />;
-      } if (user.role === roles.seeker) {
+      } if (user.isCompany === roles.isCompany) {
         return <Redirect to={routes.profile} />
       }
       else {

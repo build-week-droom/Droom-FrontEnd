@@ -57,7 +57,6 @@ function App() {
         path="/profile"
         render={props => people.map(person => <ProfilePage person={person} />)}
       />
-
       <Route exact path="/jobs" component={Jobs} />
     </div>
   )

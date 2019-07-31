@@ -1,5 +1,5 @@
 
-import CompanyProfiles from './components/Jobs/CompanyCard/CompanyProfile'
+import CompanyProfiles from './components/Jobs/CompanyCard/CompanyProfiles'
 import React, { useState } from 'react'
 import { useLocalStorage } from './auth/useLocalStorage'
 import { Route, Link } from 'react-router-dom'

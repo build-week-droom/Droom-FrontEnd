@@ -6,12 +6,12 @@ import { axiosAuth } from '../../auth/axiosAuth';
 import { axiosInstance } from '../../auth/helpers';
 import {decodeToken} from '../../auth/Token';
 import { connect } from 'react-redux'
-import { userCheck } from '../../store/actions/actions'
+import { userLogin } from '../../store/actions/actions'
 
-function LoginForm({ props, values, errors, touched, isSubmitting}) {
+function LoginForm({errors, touched, isSubmitting}) {
   // console.log('values:', values)
 
-  const setValue = useLocalStorage("token")
+  
   
   return (
 
@@ -56,36 +56,38 @@ const FormikLoginForm = withFormik({
     password: Yup.string()
      .required('Password is required'),
   }),
-  handleSubmit(values, { props, resetForm, setErrors, setSubmitting }) {
+  handleSubmit(values,formikBag) {
     console.log('loginform values clg: ' ,values)
       axiosAuth()
         .post('/api/auth/login', values)
         .then(res => {
           console.log(res); // Data was created successfully and logs to console
           
-          console.log(props.setValue)
-          props.setValue(res.data.token)
+          console.log('CLG FORMIKBAG PROPS SETVAL: ',formikBag.props.setValue)
+          formikBag.props.setValue(res.data.token)
           // localStorage.getItem('isCompany', props.isCompany)c
           console.log('clg res.data in login form', res.data)
           console.log(res.data.token)
           // console.log('decodedToken: ', decodeToken())
           const {isCompany} = decodeToken() 
           console.log('clg isCompany LoginForm: ', isCompany)
-          if (isCompany === false){
-            console.log('CLG propsIC in LOGINFORM', props)
-            
-              props.history.push('/profile')
-          } else {
-              props.history.push('/CompanyProfile')
-          }
-          resetForm();
-          setSubmitting(false);
+          formikBag.props.history.push('/profile')
+          formikBag.resetForm();
+          formikBag.setSubmitting(false);
         })
         .catch(err => {
-          console.log(err); // There was an error creating the data and logs to console
-          setSubmitting(false);
+          console.log('catch error in login form: ', err); // There was an error creating the data and logs to console
+          formikBag.setSubmitting(false);
         });
   }
-})(LoginForm);
-
-export default connect(null,{userCheck})(FormikLoginForm);
+}) (LoginForm)
+// const mapStateToProps = state => {
+//   console.log('console log state loginform: ', state)
+//   return {
+//     email: state.email,
+//     password: state.password,
+//     isLoading:state.isLoading,
+//     isLoggingIn:state.isLoggingIn,
+//   }
+// }
+export default connect(null,{userLogin})(FormikLoginForm)

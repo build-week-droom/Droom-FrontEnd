@@ -5,6 +5,8 @@ import {useLocalStorage} from '../../auth/useLocalStorage'
 import { axiosAuth } from '../../auth/axiosAuth';
 import { axiosInstance } from '../../auth/helpers';
 
+import { connect } from 'react-redux'
+import { userCheck } from '../../store/actions/actions'
 
 function LoginForm({ props, values, errors, touched, isSubmitting}) {
   // console.log('values:', values)
@@ -63,8 +65,15 @@ const FormikLoginForm = withFormik({
           console.log(res); // Data was created successfully and logs to console
 
           props.setValue(res.data.token)
+          // localStorage.getItem('isCompany', props.isCompany)c
+          console.log('clg res.data in login form', res.data)
           console.log(res.data.token)
-          props.history.push('/profile')
+          if (props.isCompany === 'false'){
+            console.log('CLG propsIC in LOGINFORM', props.isCompany)
+            props.history.push('/profile')
+          } else {
+            props.history.push('/CompanyProfile')
+          }
           resetForm();
           setSubmitting(false);
         })
@@ -75,4 +84,4 @@ const FormikLoginForm = withFormik({
   }
 })(LoginForm);
 
-export default FormikLoginForm;
+export default connect(null,{userCheck})(FormikLoginForm);

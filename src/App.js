@@ -55,7 +55,7 @@ function App() {
       <PrivateRoute
         exact
         path="/update"
-        render={props => <ProfileForm {...props} submitPerson={addPerson} />}
+        component={ProfileForm}
       />
 
 

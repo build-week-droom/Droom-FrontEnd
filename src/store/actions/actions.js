@@ -1,4 +1,5 @@
 import { axiosInstance } from '../../auth/helpers'
+import {axiosAuth} from '../../auth/axiosAuth'
 
 export const ADD_USER_START = 'ADD_USER_START'
 export const ADD_USER_SUCCESS  = 'ADD_USER_SUCCESS'
@@ -30,6 +31,7 @@ export const addUser = (newUser) => dispatch => {
 
   export const userCheck = (isCompany) => dispatch => {
     dispatch({type: CHECK_USER_START, payload: isCompany})
+      axiosAuth(localStorage.getItem('isCompany'))
 
   }
 

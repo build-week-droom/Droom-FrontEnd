@@ -29,14 +29,13 @@ function App() {
 
   return (
     <div className="App">
-      {/* <LoginForm /> */}
-
       <div>
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
         <Link to="/update">Update Profile</Link>
         <Link to="/profile">Profile</Link>
         <Link to="/jobs">Jobs</Link>
+        <Link to="/company-card">Company Card</Link>
       </div>
 
       <Route
@@ -57,9 +56,9 @@ function App() {
         path="/update"
         component={ProfileForm}
       />
-
-
-      <PrivateRoute exact path="/jobs" component={Jobs} />
+      <Route exact path="/jobs" component={Jobs} />
+      {/* THIS IS GOES WITH JOBS. ITS A COMPANY CARD THAT DISPLAYS WHEN YOU SELECT A JOB */}
+      {/* <Route exact path="/company-card" component={CompanyProfiles} /> */}
     </div>
   )
 }

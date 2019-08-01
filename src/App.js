@@ -29,8 +29,8 @@ function App() {
     setPeople([...people, person]);
   };
   //*-------------Nav Links-----------------*
-  const companyLinks = ["Login", "Register", "Profile"];
-  const seekerLinks = [];
+  const companyLinks = ["Login", "Register", "Profile", "Seekers"];
+  const seekerLinks = ["Login", "Register", "Profile", "Jobs"];
   return (
     <div className="App">
       {/* <LoginForm /> */}

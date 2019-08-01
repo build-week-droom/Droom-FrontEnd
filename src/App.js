@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useLocalStorage } from './auth/useLocalStorage'
 import PrivateRoute from './auth/PrivateRoute'
 import { Route, Link } from "react-router-dom";
 import LoginFormFormik from "./components/Login/LoginForm";
@@ -63,9 +64,9 @@ function App() {
         path="/update"
         component={ProfileForm}
       />
-      <Route exact path="/jobs" component={Jobs} />
+      <PrivateRoute exact path="/jobs" component={Jobs} />
       {/* THIS IS GOES WITH JOBS. ITS A COMPANY CARD THAT DISPLAYS WHEN YOU SELECT A JOB */}
-      <Route exact path="/companycard" component={CompanyProfiles} />
+      <PrivateRoute exact path="/companycard" component={CompanyProfiles} />
     </div>
   );
 }

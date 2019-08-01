@@ -1,19 +1,15 @@
-// Import dependencies
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Image, Icon } from 'semantic-ui-react'
+import '../../../stylesheets/components/companycard.scss'
 
-// Create JobCard component
-export default function JobCard({ job }) {
-  // Destructure props
-  const { title, description, location, company, companyId } = job
+export default function CompanyCard({ company }) {
+  const { name, email, about, location } = company
 
-  // ** TEMPORARY FOR TESTING ** Create company logo object for JobCard images
   const logoUrl = {
-    Andela: 'https://cutlerpr.co/images/case-studies/andela-logo.png',
+    'Andela': 'https://cutlerpr.co/images/case-studies/andela-logo.png',
     'Epic Flight Academy':
       'https://pbs.twimg.com/profile_images/992783731558502406/zPy4_QQu_400x400.jpg',
-    GE:
+    'GE':
       'https://s3.amazonaws.com/cms.ipressroom.com/112/files/201511/56657cc65e8eef34bab82326_GELogo_Blue_CMYK/GELogo_Blue_CMYK_08b35dd1-9467-481d-9bf9-d0045a322953-prv.jpg',
     'Impulsion Marketing Group':
       'https://media.licdn.com/dms/image/C561BAQHlmAnipOC7LA/company-background_10000/0?e=2159024400&v=beta&t=6ozsiTZJ616qX3f-1PlOEr-d01pUWW71o7AWyOwL6fk',
@@ -24,8 +20,6 @@ export default function JobCard({ job }) {
     'Paystack Nigeria':
       'https://pbs.twimg.com/profile_images/810741743436124160/sfGjeR7F_400x400.jpg'
   }
-
-  // Get / set company logo
   let logo = ''
   if (logoUrl.hasOwnProperty(company)) {
     logo = logoUrl[company]
@@ -35,7 +29,7 @@ export default function JobCard({ job }) {
   //  Set card's highlight color based on company's name
   //  (may change from company to job category if filtering becomes available)
   let jobCardHighlight = ''
-  switch (company) {
+  switch (name) {
     case 'Andela':
       jobCardHighlight = 'teal'
       break
@@ -61,31 +55,58 @@ export default function JobCard({ job }) {
       jobCardHighlight = 'gray'
   }
 
-  // Build JobCard utilizing semantic-ui-react <Card /> & props
+  // **EXPERIMENTAL, USING SEED DATA**
+  //  Set card's highlight color based on company's name
+  //  (may change from company to job category if filtering becomes available)
+  let jobCardHighlight = ''
+  switch (name) {
+    case 'Andela':
+      jobCardHighlight = 'teal'
+      break
+    case 'Epic Flight Academy':
+      jobCardHighlight = 'purple'
+      break
+    case 'GE':
+      jobCardHighlight = 'blue'
+      break
+    case 'Impulsion Marketing Group':
+      jobCardHighlight = 'yellow'
+      break
+    case 'La Causa, Inc':
+      jobCardHighlight = 'red'
+      break
+    case 'LaserCycle USA':
+      jobCardHighlight = 'green'
+      break
+    case 'Paystack Nigeria':
+      jobCardHighlight = 'violet'
+      break
+    default:
+      jobCardHighlight = 'gray'
+  }
+
   return (
-    <Card className="job-card" color={jobCardHighlight}>
-      <Image className="job-card-image" src={logo} wrapped ui={false} />
-      <Card.Content className="job-card-main-content">
-        <Card.Header className="job-card-company">{company}</Card.Header>
+    <Card className="company-card" color={jobCardHighlight}>
+      <Image className="company-card-image" wrapped ui={false} />
+      <Card.Content className="main-content">
+        <Card.Header className="company-card-name">{name}</Card.Header>
+        <Card.Header className="company-card-location">{location}</Card.Header>
         <Card.Meta>
-          <span className="job-card-location">{location}</span>
+          <span className="company-card-location">{email}</span>
         </Card.Meta>
-        <Card.Header className="job-card-title">{title}</Card.Header>
-        <Card.Description className="job-card-description">
-          {description}
+        <Card.Description className="company-card-description">
+          {about}
         </Card.Description>
       </Card.Content>
-      <Card.Content extra className="job-card-selection">
-        <Link to={`/company/${companyId}`}>
-          <div>
-            <Icon name="user" />
-            Yeah Baby!
-          </div>
-        </Link>
-        <div>
+      <Card.Content extra className="company-card-selection">
+        <a>
+          <Icon name="user" />
+          Yeah Baby!
+        </a>
+        <a>
           <Icon name="user" />
           Hell No!
-        </div>
+        </a>
       </Card.Content>
     </Card>
   )

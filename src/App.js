@@ -10,6 +10,7 @@ import ProfileForm from './components/Profile/ProfileForm'
 import Navbar from './components/Navbar/Navbar'
 import NavWrapper from './components/Navbar/NavWrapper'
 import Jobs from './components/Jobs/Jobs'
+import Company from './components/Jobs/CompanyCard/Company'
 
 function App() {
   const [storedValue, setValue] = useLocalStorage('token')
@@ -68,12 +69,12 @@ function App() {
       <Route exact path="/jobs" component={Jobs} />
       {/* THIS IS GOES WITH JOBS. ITS A COMPANY CARD THAT DISPLAYS WHEN YOU SELECT A JOB */}
       <Route exact path="/company" component={CompanyProfiles} />
-      {/* <Route
+      <Route
         path="/company/:id"
         render={props => {
           return <Company {...props} />
         }}
-      /> */}
+      />
     </div>
   )
 }

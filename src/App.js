@@ -46,8 +46,8 @@ function App() {
         <Link to="/jobs">Jobs</Link>
         <Link to="/company-card ">Company Card</Link>
         <Link to="/profile">Profile</Link>*/}
-          <Link to="/jobs">Jobs</Link>
-          <Link to="/company">Company Card</Link>
+          {/* <Link to="/jobs">Jobs</Link>
+          <Link to="/company">Company Card</Link> */}
         </NavWrapper>
       </div>
       <Route

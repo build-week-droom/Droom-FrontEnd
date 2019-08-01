@@ -58,13 +58,13 @@ function App() {
       <Route exact path="/register" component={Register} />
       <Route
         exact
-        path="/update"
-        render={props => <ProfileForm {...props} submitPerson={addPerson} />}
+        path="/profile"
+        component={ProfilePage}
       />
       <Route
         exact
-        path="/profile"
-        render={props => people.map(person => <ProfilePage person={person} />)}
+        path="/update"
+        component={ProfileForm}
       />
       <Route exact path="/jobs" component={Jobs} />
       <Route exact path="/company" component={CompanyProfiles} />

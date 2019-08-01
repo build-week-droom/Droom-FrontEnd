@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Image, Icon } from 'semantic-ui-react'
+import '../../../stylesheets/components/companycard.scss'
 
 export default function CompanyCard({ company }) {
   const { name, email, about, location } = company

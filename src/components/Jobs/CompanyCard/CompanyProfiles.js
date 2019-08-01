@@ -13,7 +13,7 @@ export default function CompanyProfiles(props) {
             axios.get(`https://jobdroom.herokuapp.com/api/company/`, {
                 headers: {
                     Authorization:
-                      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ0cmFjaWVAZW1haWwuY29tIiwiaXNDb21wYW55IjpmYWxzZSwiaWF0IjoxNTY0NjA3ODk3LCJleHAiOjE1NjUyMTI2OTd9.ba1cASR52r1kgsmsDfDs4aHD-T01calo7uJUJh1GPjo'
+                      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ0cmFjaWVAZW1haWwuY29tIiwiaXNDb21wYW55IjpmYWxzZSwiaWF0IjoxNTY0NjcxODgzLCJleHAiOjE1NjUyNzY2ODN9.YhvkaBj2RnZVoqzder_enyuw2D7tsTZd0wqO08VbpH8'
                   }
             })
                 .then(results => {

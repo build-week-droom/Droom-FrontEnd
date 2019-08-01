@@ -33,7 +33,7 @@ function LoginForm({errors, touched, isSubmitting}) {
       <div>
 
       <button className="ui primary labeled icon button" style={{textAlign:'center'}}disabled={isSubmitting} type='submit'> <i className="unlock alternate icon"></i>
-                Loginr</button>
+                Login</button>
       </div>
         
       </div>

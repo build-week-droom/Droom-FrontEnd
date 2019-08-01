@@ -1,4 +1,4 @@
-import CompanyProfiles from './components/Jobs/CompanyCard/CompanyProfile'
+import CompanyProfiles from './components/Jobs/CompanyCard/CompanyProfiles'
 import React, { useState } from 'react'
 import { useLocalStorage } from './auth/useLocalStorage'
 import { Route, Link } from 'react-router-dom'
@@ -46,7 +46,7 @@ function App() {
         <Link to="/company-card ">Company Card</Link>
         <Link to="/profile">Profile</Link>*/}
           <Link to="/jobs">Jobs</Link>
-          <Link to="/company-card">Company Card</Link>
+          <Link to="/company">Company Card</Link>
         </NavWrapper>
       </div>
       <Route
@@ -67,7 +67,7 @@ function App() {
       />
       <Route exact path="/jobs" component={Jobs} />
       {/* THIS IS GOES WITH JOBS. ITS A COMPANY CARD THAT DISPLAYS WHEN YOU SELECT A JOB */}
-      <Route exact path="/company-card" component={CompanyProfiles} />
+      <Route exact path="/company" component={CompanyProfiles} />
       {/* <Route
         path="/company/:id"
         render={props => {

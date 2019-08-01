@@ -5,6 +5,7 @@ import CompanyCard from './CompanyCard'
 export default function Company(props) {
   const [company, setCompany] = useState()
   const id = props.match.params.id
+  console.log(id)
   useEffect(() => {
     axios
       .get(`https://jobdroom.herokuapp.com/api/company/${id}`)

@@ -21,7 +21,6 @@ export default function CompanyCard({ company }) {
       'https://pbs.twimg.com/profile_images/810741743436124160/sfGjeR7F_400x400.jpg'
   }
 
-
   // Get / set company logo
   let logo = ''
   if (logoUrl.hasOwnProperty(company)) {
@@ -54,7 +53,7 @@ export default function CompanyCard({ company }) {
     default:
       jobCardHighlight = 'gray'
   }
-  
+
   return (
     <Card className="company-card" color={jobCardHighlight}>
       <Image className="job-card-image" src={logo} wrapped ui={false} />
@@ -81,5 +80,3 @@ export default function CompanyCard({ company }) {
     </Card>
   )
 }
-
-

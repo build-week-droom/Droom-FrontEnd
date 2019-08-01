@@ -3,7 +3,7 @@ import axios from 'axios'
 import CompanyCard from './CompanyCard'
 
 export default function Company(props) {
-  const [company, setCompany] = useState()
+  const [company, setCompany] = useState([])
   const id = props.match.params.id
   console.log('Company id: ', id)
   useEffect(() => {

@@ -31,8 +31,9 @@ export default function JobCard({ job }) {
     logo = logoUrl[company]
   }
 
-  // Get / Set card color based on company name *experimental with seed data*. Possibly use to highlight cards based on job category or company.
-
+  // **EXPERIMENTAL, USING SEED DATA**
+  //  Set card's highlight color based on company's name
+  //  (may change from company to job category if filtering becomes available)
   let jobCardHighlight = ''
   switch (company) {
     case 'Andela':

@@ -1,4 +1,4 @@
-import CompanyProfiles from './components/Jobs/CompanyCard/CompanyProfiles'
+import CompanyProfiles from './components/Cards/CompanyCard/CompanyProfiles'
 import React, { useState } from 'react'
 import { useLocalStorage } from './auth/useLocalStorage'
 import { Route, Link } from 'react-router-dom'
@@ -9,8 +9,8 @@ import ProfilePage from './components/Profile/ProfilePage'
 import ProfileForm from './components/Profile/ProfileForm'
 import Navbar from './components/Navbar/Navbar'
 import NavWrapper from './components/Navbar/NavWrapper'
-import Jobs from './components/Jobs/Jobs'
-import Company from './components/Jobs/CompanyCard/Company'
+import Jobs from './components/Cards/Jobs'
+import Company from './components/Cards/CompanyCard/Company'
 
 function App() {
   const [storedValue, setValue] = useLocalStorage('token')

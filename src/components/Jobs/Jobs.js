@@ -1,6 +1,6 @@
 // Import dependencies
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import { axiosAuth } from '../../auth/axiosAuth'
 import JobCard from './JobCard'
 import { Card } from 'semantic-ui-react'
 
@@ -10,14 +10,10 @@ export default function Jobs(props) {
   const [jobs, setJobs] = useState([])
 
   // Get jobs object
+
   useEffect(() => {
-    axios
-      .get('https://jobdroom.herokuapp.com/api/jobs', {
-        headers: {
-          Authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJqYXNvbkBlbWFpbC5jb20iLCJpc0NvbXBhbnkiOmZhbHNlLCJpYXQiOjE1NjQ2MDc4OTMsImV4cCI6MTU2NTIxMjY5M30.ZJQL6V4L9YwORWq1034Y2wkQEuBcvtGiE68qW2ABdZs'
-        }
-      })
+    axiosAuth()
+      .get('https://jobdroom.herokuapp.com/api/jobs')
       // Set state
       .then(response => {
         setJobs(response.data)

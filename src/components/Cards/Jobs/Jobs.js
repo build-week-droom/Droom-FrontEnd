@@ -11,22 +11,9 @@ export default function Jobs(props) {
 
   // Get jobs object
 
-  // useEffect(() => {
-  //   axiosAuth()
-  //     .get('https://jobdroom.herokuapp.com/api/jobs')
-  //     // Set state
-  //     .then(response => {
-  //       setJobs(response.data)
-  //     })
-  //     .catch(error => {
-  //       console.error('Server Error:', error)
-  //     })
-  // }, [])
-
   useEffect(() => {
     axiosAuth()
       .get('https://jobdroom.herokuapp.com/api/jobs')
-
       // Set state
       .then(response => {
         setJobs(response.data)

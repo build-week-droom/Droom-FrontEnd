@@ -43,7 +43,7 @@ function App() {
         <Link to="/update">Update Profile</Link>
         <Link to="/profile">Profile</Link>*/}
           <Link to="/jobs">Jobs</Link>
-          <Link to="/company-card">Company Card</Link>
+          <Link to="/company">Company Card</Link>
         </NavWrapper>
       </div>
       <Route
@@ -64,7 +64,7 @@ function App() {
       />
       <Route exact path="/jobs" component={Jobs} />
       {/* THIS IS GOES WITH JOBS. ITS A COMPANY CARD THAT DISPLAYS WHEN YOU SELECT A JOB */}
-      <Route exact path="/companycard" component={CompanyProfiles} />
+      <Route exact path="/company" component={CompanyProfiles} />
     </div>
   );
 }

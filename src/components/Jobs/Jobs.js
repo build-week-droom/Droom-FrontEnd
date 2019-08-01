@@ -4,6 +4,7 @@ import {axiosAuth} from '../../auth/axiosAuth'
 import JobCard from './JobCard'
 import { Card } from 'semantic-ui-react'
 
+
 // Create Jobs component
 export default function Jobs(props) {
   // Declare state for jobs object

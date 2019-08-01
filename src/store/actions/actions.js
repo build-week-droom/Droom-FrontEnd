@@ -66,7 +66,7 @@ export const loadUserInfo = (id) => dispatch => {
       })
     )
 }
-
+// UPDATE USER
 export const UPDATE_USER_START = 'UPDATE_USER_START'
 export const UPDATE_USER_SUCCESS = 'UPDATE_USER_SUCCESS'
 export const UPDATE_USER_FAILURE = 'UPDATE_USER_FAILURE'
@@ -91,6 +91,23 @@ export const updateUserInfo = info => dispatch => {
     )
 }
 
+
+// COMPANYS DELETE THEIR OWN JOB POSTING
+export const DELETE_JOB_START = 'DELETE_JOB_START'
+export const DELETE_JOB_SUCCESS = 'DELETE_JOB_SUCCESS'
+export const DELETE_JOB_FAILURE = 'DELETE_JOB_FAILURE'
+
+export const deleteJobPost = id => dispatch => {
+  dispatch({ type: DELETE_JOB_START })
+    axiosAuth()
+      .delete(`/api/jobs/${id}`)
+      .then(res => {
+        dispatch({ type: DELETE_JOB_SUCCESS, payload: res.data });
+      })
+      .catch(err => {
+        dispatch({ type: DELETE_JOB_FAILURE, payload: err });
+      });
+}
 
 //SEARCH and FILTER
 export const SEARCH = "SEARCH";

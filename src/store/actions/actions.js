@@ -68,8 +68,8 @@ export const LOAD_USER_FAILURE = 'LOAD_USER_FAILURE'
 
 export const loadUserInfo = () => dispatch => {
   dispatch({ type: LOAD_USER_START })
-  return axiosInstance
-    .get('/profile')
+  return axiosAuth()
+    .get('/api/seekers/')
     .then(({ data: user }) =>
       dispatch({ type: LOAD_USER_SUCCESS, payload: user }, console.log('clg lodusf: ', user))
     )

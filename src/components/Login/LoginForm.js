@@ -69,9 +69,9 @@ const FormikLoginForm = withFormik({
           console.log('clg res.data in login form', res.data)
           console.log(res.data.token)
           // console.log('decodedToken: ', decodeToken())
-          const {isCompany} = decodeToken() 
+          const {isCompany,id} = decodeToken() 
           console.log('clg isCompany LoginForm: ', isCompany)
-          formikBag.props.history.push('/profile')
+          formikBag.props.history.push(`/profile/${id}`)
           formikBag.resetForm();
           formikBag.setSubmitting(false);
         })

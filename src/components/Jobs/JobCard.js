@@ -1,5 +1,6 @@
 // Import dependencies
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Card, Icon, Image } from 'semantic-ui-react'
 
 // Create JobCard component
@@ -30,8 +31,9 @@ export default function JobCard({ job }) {
     logo = logoUrl[company]
   }
 
-  // Get / Set card color based on company name *experimental with seed data*. Possibly use to highlight cards based on job category or company.
-
+  // **EXPERIMENTAL, USING SEED DATA**
+  //  Set card's highlight color based on company's name
+  //  (may change from company to job category if filtering becomes available)
   let jobCardHighlight = ''
   switch (company) {
     case 'Andela':
@@ -74,14 +76,16 @@ export default function JobCard({ job }) {
         </Card.Description>
       </Card.Content>
       <Card.Content extra className="job-card-selection">
-        <a>
-          <Icon name="user" />
-          Yeah Baby!
-        </a>
-        <a>
+        <Link to={`/company/${companyId}`}>
+          <div>
+            <Icon name="user" />
+            Yeah Baby!
+          </div>
+        </Link>
+        <div>
           <Icon name="user" />
           Hell No!
-        </a>
+        </div>
       </Card.Content>
     </Card>
   )

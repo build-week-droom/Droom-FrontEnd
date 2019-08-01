@@ -1,9 +1,13 @@
-import React from 'react';
+import React from 'react'
 import { Card, Image, Icon } from 'semantic-ui-react'
 import '../../../stylesheets/components/companycard.scss'
 
 export default function CompanyCard({ company }) {
+<<<<<<< HEAD
   const { name, email, about, location } = company
+=======
+  const { id, name, email, about, location, profileImg } = company
+>>>>>>> 9e18f417e6eec9eebf3076346e86fcb522561688
 
   const logoUrl = {
     Andela: 'https://cutlerpr.co/images/case-studies/andela-logo.png',
@@ -56,6 +60,7 @@ export default function CompanyCard({ company }) {
   }
   
   return (
+<<<<<<< HEAD
     <Card className="company-card" color={jobCardHighlight}>
       <Image className="job-card-image" src={logo} wrapped ui={false} />
       <Card.Content className="job-card-main-content">
@@ -77,6 +82,15 @@ export default function CompanyCard({ company }) {
           <Icon name="user" />
           Hell No!
         </a>
+=======
+    <Card className="company-card">
+      <Image className="job-card-image" src={logo} wrapped ui={false} />
+      <Card.Content>
+        <Card.Header>{name}</Card.Header>
+        <Card.Content>{about}</Card.Content>
+        <Card.Meta>{location}</Card.Meta>
+        <Card.Meta>{email}</Card.Meta>
+>>>>>>> 9e18f417e6eec9eebf3076346e86fcb522561688
       </Card.Content>
     </Card>
   )

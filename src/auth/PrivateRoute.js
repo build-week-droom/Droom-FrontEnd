@@ -33,6 +33,7 @@ import routes from './routes'
 function PrivateRoute({ component: Component, ...rest }) {
   const currentUser = getToken();
   const user = decodeToken(currentUser);
+  console.log('CONSOLE LOGE PRVT ROUTE USER:', user)
   return (
     <Route
       {...rest}

@@ -55,36 +55,6 @@ export default function CompanyCard({ company }) {
       jobCardHighlight = 'gray'
   }
 
-  // **EXPERIMENTAL, USING SEED DATA**
-  //  Set card's highlight color based on company's name
-  //  (may change from company to job category if filtering becomes available)
-  let jobCardHighlight = ''
-  switch (name) {
-    case 'Andela':
-      jobCardHighlight = 'teal'
-      break
-    case 'Epic Flight Academy':
-      jobCardHighlight = 'purple'
-      break
-    case 'GE':
-      jobCardHighlight = 'blue'
-      break
-    case 'Impulsion Marketing Group':
-      jobCardHighlight = 'yellow'
-      break
-    case 'La Causa, Inc':
-      jobCardHighlight = 'red'
-      break
-    case 'LaserCycle USA':
-      jobCardHighlight = 'green'
-      break
-    case 'Paystack Nigeria':
-      jobCardHighlight = 'violet'
-      break
-    default:
-      jobCardHighlight = 'gray'
-  }
-
   return (
     <Card className="company-card" color={jobCardHighlight}>
       <Image className="company-card-image" wrapped ui={false} />

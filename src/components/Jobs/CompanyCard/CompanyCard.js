@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, Image, Icon } from 'semantic-ui-react'
-// import '../../../stylesheets/components/companycard.scss'
+import '../../../stylesheets/components/companycard.scss'
 
 export default function CompanyCard({ company }) {
   const { name, email, about, location } = company
@@ -59,7 +59,7 @@ export default function CompanyCard({ company }) {
     <Card className="company-card" color={jobCardHighlight}>
       <Image className="company-card-image" wrapped ui={false} />
       <Card.Content className="main-content">
-        <Card.Header className="company-card-company">{name}</Card.Header>
+        <Card.Header className="company-card-name">{name}</Card.Header>
         <Card.Header className="company-card-location">{location}</Card.Header>
         <Card.Meta>
           <span className="company-card-location">{email}</span>

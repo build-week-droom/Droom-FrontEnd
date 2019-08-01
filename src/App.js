@@ -46,8 +46,8 @@ function App() {
         <Link to="/jobs">Jobs</Link>
         <Link to="/company-card ">Company Card</Link>
         <Link to="/profile">Profile</Link>*/}
-          <Link to="/jobs">Jobs</Link>
-          <Link to="/company">Company Card</Link>
+          {/* <Link to="/jobs">Jobs</Link>
+          <Link to="/company">Company Card</Link> */}
         </NavWrapper>
       </div>
       <Route
@@ -58,13 +58,13 @@ function App() {
       <Route exact path="/register" component={Register} />
       <Route
         exact
-        path="/update"
-        render={props => <ProfileForm {...props} submitPerson={addPerson} />}
+        path="/profile"
+        component={ProfilePage}
       />
       <Route
         exact
-        path="/profile"
-        render={props => people.map(person => <ProfilePage person={person} />)}
+        path="/update"
+        component={ProfileForm}
       />
       <Route exact path="/jobs" component={Jobs} />
       {/* THIS IS GOES WITH JOBS. ITS A COMPANY CARD THAT DISPLAYS WHEN YOU SELECT A JOB */}

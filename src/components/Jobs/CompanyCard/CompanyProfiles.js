@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import {axiosAuth} from '../../../auth/axiosAuth'
 import CompanyCard from './CompanyCard'
 
 // GET /api/company/id Returns a Company Profile (id + jobs available).
@@ -9,7 +9,7 @@ export default function CompanyProfiles(props) {
   const [companies, setCompanies] = useState([])
   useEffect(() => {
     //.get axios get request here
-    axios
+    axiosAuth()
       .get(`https://jobdroom.herokuapp.com/api/company/`, {
         headers: {
           Authorization:

@@ -9,7 +9,7 @@ import ProfileForm from './components/Profile/ProfileForm'
 import Jobs from './components/Jobs/Jobs'
 
 function App() {
-  const [setValue] = useLocalStorage('token')
+  const [storedValue, setValue] = useLocalStorage('token')
 
   //*----Dummy Data----*
   // const [people, setPeople] = useState([

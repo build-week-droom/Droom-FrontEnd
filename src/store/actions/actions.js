@@ -49,30 +49,15 @@ export const LOAD_USER_START = 'LOAD_USER_START'
 export const LOAD_USER_SUCCESS = 'LOAD_USER_SUCCESS'
 export const LOAD_USER_FAILURE = 'LOAD_USER_FAILURE'
 
-// export const loadUserInfo = () => dispatch => {
-//   dispatch({ type: LOAD_USER_START })
-//   return axiosInstance
-//     .get(`/api/seekers/${id}`)
-//     .then(res => {
-//       // console.log(res.data)
-//       type: LOAD_USER_SUCCESS,
-//       payload: res.data
-//     })
-//     .catch(() =>
-//       dispatch({
-//         type: LOAD_USER_FAILURE,
-//         payload: 'Problem fetching user',
-//       })
-//     )
-// }
-
 export const loadUserInfo = () => dispatch => {
   dispatch({ type: LOAD_USER_START })
   return axiosAuth()
-    .get('/api/seekers/')
-    .then(({ data: user }) =>
-      dispatch({ type: LOAD_USER_SUCCESS, payload: user }, console.log('clg lodusf: ', user))
-    )
+    .get(`/api/seekers/${id}`)
+    .then(res => {
+      // console.log(res.data)
+      type: LOAD_USER_SUCCESS,
+      payload: res.data
+    })
     .catch(() =>
       dispatch({
         type: LOAD_USER_FAILURE,
@@ -80,6 +65,21 @@ export const loadUserInfo = () => dispatch => {
       })
     )
 }
+
+// export const loadUserInfo = () => dispatch => {
+//   dispatch({ type: LOAD_USER_START })
+//   return axiosAuth()
+//     .get('/api/seekers/3')
+//     .then(({ data: user }) =>
+//       dispatch({ type: LOAD_USER_SUCCESS, payload: action.payload }, console.log('clg lodusf: ', user))
+//     )
+//     .catch(() =>
+//       dispatch({
+//         type: LOAD_USER_FAILURE,
+//         payload: 'Problem fetching user',
+//       })
+//     )
+// }
 
 export const UPDATE_USER_START = 'UPDATE_USER_START'
 export const UPDATE_USER_SUCCESS = 'UPDATE_USER_SUCCESS'

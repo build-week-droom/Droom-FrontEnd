@@ -1,19 +1,27 @@
 .grid {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
+    flex-direction: row;
+
   }
   
-  .job-card {
-    .job-card-image {
-      padding: 5px !important;
-    }
-    .job-card-company {
-      font-size: 2rem;
-    }
-    .job-card-selection {
-      display: flex;
-      justify-content: space-between;
+  // .company-list {
+
+  //   .company-card-description {
+  //     font-size: 1.3rem;
+  //   }
+  //   .company-card-selection{
+  //     display: flex;
+  //     // justify-content: space-between;
+  //   }
+  // }
+  
+
+.company-card {
+
+  .main-content{
+    
+    .company-card-name{
+        border: 2px solid blue;
     }
   }
-  
+}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import CompanyCard from './CompanyCard'
-
+import { Card } from 'semantic-ui-react'
 export default function Company(props) {
   const [company, setCompany] = useState([])
   const id = props.match.params.id
@@ -26,8 +26,8 @@ export default function Company(props) {
 
   console.log('company state: ', company)
   return (
-    <div className="company-wrapper">
+    <Card.Group className="company-list grid" itemsPerRow={2}>
       <CompanyCard company={company} />
-    </div>
+    </Card.Group>
   )
 }

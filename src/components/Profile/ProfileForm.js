@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ProfilePage from "./ProfilePage";
+
+// import {connect} from 'react-redux'
+// import { loadUserInfo } from '../../store/actions/actions'
+
 //This is a dummy component with no API functionality ***
-export const UserProfile = props => {
+const UserProfile = props => {
   const { submitPerson } = props;
   //*----DummyData-------------*
   const [people, setPeople] = useState([
@@ -111,4 +115,4 @@ export const UserProfile = props => {
   );
 };
 
-export default UserProfile;
+export default (UserProfile);

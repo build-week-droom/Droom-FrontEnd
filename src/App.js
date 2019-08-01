@@ -9,7 +9,7 @@ import ProfilePage from './components/Profile/ProfilePage'
 import ProfileForm from './components/Profile/ProfileForm'
 import Navbar from './components/Navbar/Navbar'
 import NavWrapper from './components/Navbar/NavWrapper'
-import Jobs from './components/Cards/Jobs'
+import Jobs from './components/Cards/Jobs/Jobs'
 import Company from './components/Cards/CompanyCard/Company'
 
 function App() {
@@ -46,8 +46,8 @@ function App() {
         <Link to="/jobs">Jobs</Link>
         <Link to="/company-card ">Company Card</Link>
         <Link to="/profile">Profile</Link>*/}
-          <Link to="/jobs">Jobs</Link>
-          <Link to="/company">Company Card</Link>
+          {/* <Link to="/jobs">Jobs</Link>
+          <Link to="/company">Company Card</Link> */}
         </NavWrapper>
       </div>
       <Route
@@ -67,7 +67,6 @@ function App() {
         render={props => people.map(person => <ProfilePage person={person} />)}
       />
       <Route exact path="/jobs" component={Jobs} />
-      {/* THIS IS GOES WITH JOBS. ITS A COMPANY CARD THAT DISPLAYS WHEN YOU SELECT A JOB */}
       <Route exact path="/company" component={CompanyProfiles} />
       <Route
         path="/company/:id"

@@ -1,6 +1,6 @@
 // Import dependencies
 import React, { useState, useEffect } from 'react'
-import { axiosAuth } from '../../auth/axiosAuth'
+import { axiosAuth } from '../../../auth/axiosAuth'
 import axios from 'axios'
 import JobCard from './JobCard'
 import { Card } from 'semantic-ui-react'

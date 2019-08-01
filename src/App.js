@@ -1,7 +1,7 @@
+import CompanyProfiles from "./components/Jobs/CompanyCard/CompanyProfile";
 import React, { useState } from "react";
 import { useLocalStorage } from "./auth/useLocalStorage";
 import { Route, Link } from "react-router-dom";
-
 // import PrivateRoute from './auth/PrivateRoute'
 import LoginFormFormik from "./components/Login/LoginForm";
 import Register from "./components/Register/Register";
@@ -9,6 +9,7 @@ import ProfilePage from "./components/Profile/ProfilePage";
 import ProfileForm from "./components/Profile/ProfileForm";
 import Navbar from "./components/Navbar/Navbar";
 import NavWrapper from "./components/Navbar/NavWrapper";
+import Jobs from "./components/Jobs/Jobs";
 
 function App() {
   const [storedValue, setValue] = useLocalStorage("token");
@@ -28,20 +29,21 @@ function App() {
   const addPerson = person => {
     setPeople([...people, person]);
   };
-  //*-------------Nav Links-----------------*
-  const companyLinks = ["Login", "Register", "Profile", "Seekers"];
-  const seekerLinks = ["Login", "Register", "Profile", "Jobs"];
+  //*-------------Nav Links Here-----------------*
+  const companyLinks = ["Login", "Register", "Profile", "Seekers", "Company"];
+  const seekerLinks = ["Login", "Register", "Profile", "Jobs", "Company"];
   return (
     <div className="App">
-      {/* <LoginForm /> */}
-
       <div>
         <NavWrapper>
           <Navbar companyLinks={companyLinks} seekerLinks={seekerLinks} />
-          {/* <Link to="/login">Login</Link>
-          <Link to="/register">Register</Link>
-          <Link to="/update">Update Profile</Link>
-          <Link to="/profile">Profile</Link> */}
+          {/*^^^^ NavLinks added above^^^^
+          <Link to="/login">Login</Link>
+        <Link to="/register">Register</Link>
+        <Link to="/update">Update Profile</Link>
+        <Link to="/profile">Profile</Link>*/}
+          <Link to="/jobs">Jobs</Link>
+          <Link to="/company-card">Company Card</Link>
         </NavWrapper>
       </div>
       <Route
@@ -60,6 +62,9 @@ function App() {
         path="/profile"
         render={props => people.map(person => <ProfilePage person={person} />)}
       />
+      <Route exact path="/jobs" component={Jobs} />
+      {/* THIS IS GOES WITH JOBS. ITS A COMPANY CARD THAT DISPLAYS WHEN YOU SELECT A JOB */}
+      <Route exact path="/companycard" component={CompanyProfiles} />
     </div>
   );
 }

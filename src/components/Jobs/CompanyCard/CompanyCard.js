@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 import { Card, Image, Icon } from 'semantic-ui-react'
 import '../../../stylesheets/components/companycard.scss'
 
 export default function CompanyCard({ company }) {
-  const { name, email, about, location } = company
+  const { id, name, email, about, location, profileImg } = company
 
   const logoUrl = {
     Andela: 'https://cutlerpr.co/images/case-studies/andela-logo.png',
@@ -20,7 +20,6 @@ export default function CompanyCard({ company }) {
     'Paystack Nigeria':
       'https://pbs.twimg.com/profile_images/810741743436124160/sfGjeR7F_400x400.jpg'
   }
-
 
   // Get / set company logo
   let logo = ''
@@ -54,7 +53,7 @@ export default function CompanyCard({ company }) {
     default:
       jobCardHighlight = 'gray'
   }
-  
+
   return (
     <Card className="company-card" color={jobCardHighlight}>
       <Image className="job-card-image" src={logo} wrapped ui={false} />
@@ -81,5 +80,3 @@ export default function CompanyCard({ company }) {
     </Card>
   )
 }
-
-

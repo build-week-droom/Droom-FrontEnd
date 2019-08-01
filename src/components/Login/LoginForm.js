@@ -1,9 +1,9 @@
-import React,{useState} from 'react'
-import { Form, Field, Formik, yupToFormErrors, withFormik } from "formik";
+import React from 'react'
+import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
-import {useLocalStorage} from '../../auth/useLocalStorage'
+// import {useLocalStorage} from '../../auth/useLocalStorage'
 import { axiosAuth } from '../../auth/axiosAuth';
-import { axiosInstance } from '../../auth/helpers';
+// import { axiosInstance } from '../../auth/helpers';
 import {decodeToken} from '../../auth/Token';
 import { connect } from 'react-redux'
 import { userLogin } from '../../store/actions/actions'
@@ -69,9 +69,9 @@ const FormikLoginForm = withFormik({
           console.log('clg res.data in login form', res.data)
           console.log(res.data.token)
           // console.log('decodedToken: ', decodeToken())
-          const {isCompany,id} = decodeToken() 
+          const {isCompany} = decodeToken() 
           console.log('clg isCompany LoginForm: ', isCompany)
-          formikBag.props.history.push(`/profile/${id}`)
+          formikBag.props.history.push('/profile')
           formikBag.resetForm();
           formikBag.setSubmitting(false);
         })

@@ -17,8 +17,14 @@ import {
 
 
 const initialUserState = {
+  id:null,
   name: null,
   email: null,
+  interests: null,
+  pastExperience: null,
+  location:null,
+  profileImg:null,
+
   isCompany: true,
   loading: false,
   error: null,

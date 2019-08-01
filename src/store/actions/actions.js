@@ -66,24 +66,45 @@ export const LOAD_USER_FAILURE = 'LOAD_USER_FAILURE'
 //     )
 // }
 
-export const loadUserInfo = id => dispatch => {
-  // const token = localStorage.getItem("token");
-  dispatch({ type: LOAD_USER_START });
-  return axiosAuth()
-    .get(`/api/seekers/`)
-    .then(res => {
-      dispatch({
-        type: LOAD_USER_SUCCESS,
-        payload: res.data
-      });
-    })
-    .catch(err => {
+export const loadUserInfo = () => dispatch => {
+  dispatch({ type: LOAD_USER_START })
+  return axiosInstance
+    .get('/profile')
+    .then(({ data: user }) =>
+      dispatch({ type: LOAD_USER_SUCCESS, payload: user }, console.log('clg lodusf: ', user))
+    )
+    .catch(() =>
       dispatch({
         type: LOAD_USER_FAILURE,
-        payload: err.message
-      });
-    });
-};
+        payload: 'Problem fetching user',
+      })
+    )
+}
+
+export const UPDATE_USER_START = 'UPDATE_USER_START'
+export const UPDATE_USER_SUCCESS = 'UPDATE_USER_SUCCESS'
+export const UPDATE_USER_FAILURE = 'UPDATE_USER_FAILURE'
+
+export const updateUserInfo = info => dispatch => {
+  dispatch({ type: UPDATE_USER_START })
+
+  return axiosInstance
+    .put('/profile', info)
+    .then(({ data: { user } }) => {
+      dispatch({
+        type: UPDATE_USER_SUCCESS,
+        payload: user[0],
+        msg: 'Success',
+      })
+    })
+    .catch(err =>
+      dispatch({
+        type: UPDATE_USER_FAILURE,
+        payload: err.message,
+      })
+    )
+}
+
 
 //SEARCH and FILTER
 export const SEARCH = "SEARCH";

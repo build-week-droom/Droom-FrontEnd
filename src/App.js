@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useLocalStorage } from './auth/useLocalStorage'
 import { Route, Link } from 'react-router-dom'
 import PrivateRoute from './auth/PrivateRoute'
@@ -9,23 +9,23 @@ import ProfileForm from './components/Profile/ProfileForm'
 import Jobs from './components/Jobs/Jobs'
 
 function App() {
-  const [storedValue, setValue] = useLocalStorage('token')
+  const [setValue] = useLocalStorage('token')
 
   //*----Dummy Data----*
-  const [people, setPeople] = useState([
-    {
-      id: 1,
-      name: 'notanthony',
-      email: 'anthony@mail.com',
-      interests: 'lego arms dealer',
-      pastExperience: 'president',
-      location: 'mars'
-    }
-  ])
+  // const [people, setPeople] = useState([
+  //   {
+  //     id: 1,
+  //     name: 'notanthony',
+  //     email: 'anthony@mail.com',
+  //     interests: 'lego arms dealer',
+  //     pastExperience: 'president',
+  //     location: 'mars'
+  //   }
+  // ])
   //*------Function addPerson adds person to People array----*
-  const addPerson = person => {
-    setPeople([...people, person])
-  }
+  // const addPerson = person => {
+  //   setPeople([...people, person])
+  // }
 
   return (
     <div className="App">

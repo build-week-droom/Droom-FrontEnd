@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import ProfilePage from "./ProfilePage";
+import React, { useState } from "react";
+// import axios from "axios";
+// import ProfilePage from "./ProfilePage";
 
 // import {connect} from 'react-redux'
 // import { loadUserInfo } from '../../store/actions/actions'
@@ -9,7 +9,7 @@ import ProfilePage from "./ProfilePage";
 const UserProfile = props => {
   const { submitPerson } = props;
   //*----DummyData-------------*
-  const [people, setPeople] = useState([
+  const [setPeople] = useState([
     {
       id: 1,
       name: "anthony",

@@ -1,7 +1,6 @@
 // Import dependencies
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import {axiosAuth} from 'axios'
+import {axiosAuth} from '../../auth/axiosAuth'
 import JobCard from './JobCard'
 import { Card } from 'semantic-ui-react'
 
@@ -14,7 +13,6 @@ export default function Jobs(props) {
 
   useEffect(() => {
     axiosAuth()
-    axios
       .get('https://jobdroom.herokuapp.com/api/jobs')
       // Set state
       .then(response => {

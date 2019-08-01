@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react'
 import { axiosAuth } from '../../../auth/axiosAuth'
 import JobCard from './JobCard'
 import { Card } from 'semantic-ui-react'
-import { axiosAuth } from '../../auth/axiosAuth'
 
 // Create Jobs component
 export default function Jobs(props) {

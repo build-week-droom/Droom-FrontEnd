@@ -9,8 +9,7 @@ export default function Jobs(props) {
   // Declare state for jobs object
   const [jobs, setJobs] = useState([])
 
-  // Get jobs object
-
+  // Get job listings object
   useEffect(() => {
     axiosAuth()
       .get('https://jobdroom.herokuapp.com/api/jobs')
@@ -25,7 +24,7 @@ export default function Jobs(props) {
 
   console.log('jobs: ', jobs)
 
-  // Map over jobs object to create a JobCard for each job listing
+  // Map over job listings to create a JobCard for each listing
   return (
     <Card.Group className="jobs-list grid" itemsPerRow={5}>
       {jobs.map(job => (

@@ -1,7 +1,11 @@
-// main {
-//   //   background-color: rgb(202, 225, 245);
-//   //   border-bottom: 51px solid black;
-// }
+main {
+  background-image: url("https://images.unsplash.com/uploads/14116941824817ba1f28e/78c8dff1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1533&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 93.7vh;
+  border-bottom: 52px solid black;
+}
 main section {
   width: 70%;
   padding: 90px 0;
@@ -40,7 +44,7 @@ div.services {
 
 .services div {
   text-align: center;
-  background: aliceblue;
+  background: rgb(173, 210, 241);
   width: 90%;
   border-radius: 10px;
   margin: 10px auto 72px auto;

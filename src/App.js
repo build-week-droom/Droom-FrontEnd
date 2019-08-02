@@ -1,16 +1,16 @@
-import CompanyProfiles from "./components/Jobs/CompanyCard/CompanyProfiles";
-import React, { useState } from "react";
-import { useLocalStorage } from "./auth/useLocalStorage";
-import { Route, Link } from "react-router-dom";
+import CompanyProfiles from './components/Cards/CompanyCard/CompanyProfiles'
+import React, { useState } from 'react'
+import { useLocalStorage } from './auth/useLocalStorage'
+import { Route, Link } from 'react-router-dom'
 // import PrivateRoute from './auth/PrivateRoute'
-import LoginFormFormik from "./components/Login/LoginForm";
-import Register from "./components/Register/Register";
-import ProfilePage from "./components/Profile/ProfilePage";
-import ProfileForm from "./components/Profile/ProfileForm";
-import Navbar from "./components/Navbar/Navbar";
-import NavWrapper from "./components/Navbar/NavWrapper";
-import Jobs from "./components/Jobs/Jobs";
-import Company from "./components/Jobs/CompanyCard/Company";
+import LoginFormFormik from './components/Login/LoginForm'
+import Register from './components/Register/Register'
+import ProfilePage from './components/Profile/ProfilePage'
+import ProfileForm from './components/Profile/ProfileForm'
+import Navbar from './components/Navbar/Navbar'
+import NavWrapper from './components/Navbar/NavWrapper'
+import Jobs from './components/Cards/Jobs/Jobs'
+import Company from './components/Cards/CompanyCard/Company'
 import HomePage from "./components/HomePage";
 
 function App() {
@@ -66,7 +66,6 @@ function App() {
       <Route exact path="/profile" component={ProfilePage} />
       <Route exact path="/update" component={ProfileForm} />
       <Route exact path="/jobs" component={Jobs} />
-      {/* THIS IS GOES WITH JOBS. ITS A COMPANY CARD THAT DISPLAYS WHEN YOU SELECT A JOB */}
       <Route exact path="/company" component={CompanyProfiles} />
       <Route
         path="/company/:id"

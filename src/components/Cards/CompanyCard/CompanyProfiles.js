@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {axiosAuth} from '../../../auth/axiosAuth'
+import { axiosAuth } from '../../../auth/axiosAuth'
 import CompanyCard from './CompanyCard'
 
 // GET /api/company/id Returns a Company Profile (id + jobs available).
@@ -10,12 +10,7 @@ export default function CompanyProfiles(props) {
   useEffect(() => {
     //.get axios get request here
     axiosAuth()
-      .get(`https://jobdroom.herokuapp.com/api/company/`, {
-        headers: {
-          Authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ0cmFjaWVAZW1haWwuY29tIiwiaXNDb21wYW55IjpmYWxzZSwiaWF0IjoxNTY0NjcxODgzLCJleHAiOjE1NjUyNzY2ODN9.YhvkaBj2RnZVoqzder_enyuw2D7tsTZd0wqO08VbpH8'
-        }
-      })
+      .get(`https://jobdroom.herokuapp.com/api/company/`)
       .then(results => {
         setCompanies(results.data)
       })
@@ -25,16 +20,6 @@ export default function CompanyProfiles(props) {
   }, [])
 
   console.log('Companies Available: ', companies)
-
-  // useEffect(() => {
-  //     axios.get(`https://jobdroom.herokuapp.com/api/company/id`)
-  //         .then(results => {
-  //             setCompanies(results.data)
-  //         })
-  //         .catch(error => {
-  //             console.log("Check your work", error);
-  //         })
-  // }, [])
 
   // console.log('More information on our companies ', companies)
 

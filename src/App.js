@@ -11,45 +11,52 @@ import Navbar from './components/Navbar/Navbar'
 import NavWrapper from './components/Navbar/NavWrapper'
 import Jobs from './components/Cards/Jobs/Jobs'
 import Company from './components/Cards/CompanyCard/Company'
+import HomePage from "./components/HomePage";
 
 function App() {
-  const [storedValue, setValue] = useLocalStorage('token')
+  const [storedValue, setValue] = useLocalStorage("token");
 
   //*----Dummy Data----*
   const [people, setPeople] = useState([
     {
       id: 1,
-      name: 'notanthony',
-      email: 'anthony@mail.com',
-      interests: 'lego arms dealer',
-      pastExperience: 'president',
-      location: 'mars'
+      name: "notanthony",
+      email: "anthony@mail.com",
+      interests: "lego arms dealer",
+      pastExperience: "president",
+      location: "mars"
     }
-  ])
+  ]);
   //*------Function addPerson adds person to People array----*
   const addPerson = person => {
-    setPeople([...people, person])
-  }
+    setPeople([...people, person]);
+  };
   //*-------------Nav Links Here-----------------*
-  const companyLinks = ['Login', 'Register', 'Profile', 'Seekers', 'Company']
-  const seekerLinks = ['Login', 'Register', 'Profile', 'Jobs', 'Company']
+  const companyLinks = [
+    "Home",
+    "Login",
+    "Register",
+    "Profile",
+    "Seekers",
+    "Company"
+  ];
+  const seekerLinks = [
+    "Home",
+    "Login",
+    "Register",
+    "Profile",
+    "Jobs",
+    "Company"
+  ];
   return (
     <div className="App">
       <div>
         <NavWrapper>
           <Navbar companyLinks={companyLinks} seekerLinks={seekerLinks} />
-          {/*^^^^ NavLinks added above^^^^
-          <Link to="/login">Login</Link>
-        <Link to="/register">Register</Link>
-        <Link to="/update">Update Profile</Link>
-        <Link to="/profile">Profile</Link>
-        <Link to="/jobs">Jobs</Link>
-        <Link to="/company-card ">Company Card</Link>
-        <Link to="/profile">Profile</Link>*/}
-          {/* <Link to="/jobs">Jobs</Link>
-          <Link to="/company">Company Card</Link> */}
+          {/*^^^^ NavLinks added above^^^^*/}
         </NavWrapper>
       </div>
+      <Route exact path="/home" component={HomePage} />
       <Route
         exact
         path="/login"
@@ -63,11 +70,11 @@ function App() {
       <Route
         path="/company/:id"
         render={props => {
-          return <Company {...props} />
+          return <Company {...props} />;
         }}
       />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -10,7 +10,6 @@ export default function Jobs(props) {
   const [jobs, setJobs] = useState([])
 
   // Get jobs object
-
   useEffect(() => {
     axiosAuth()
       .get('https://jobdroom.herokuapp.com/api/jobs')

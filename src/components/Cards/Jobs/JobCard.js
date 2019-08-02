@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Card, Icon, Image } from 'semantic-ui-react'
 
-// import logos
+// import compnay logos
 import andela from '../../../assets/images/andela-logo.png'
 import epic from '../../../assets/images/epic-logo.png'
 import ge from '../../../assets/images/ge-logo.png'
@@ -17,47 +17,37 @@ export default function JobCard({ job }) {
   // Destructure props
   const { title, description, location, company, companyId } = job
 
-  // **EXPERIMENTAL, USING SEED DATA**
-  //  Set card highlight color & logo image based on company name
-  //  (may change from company to job category if filtering becomes available)
-  let jobCardHighlight = ''
+  // Get / Set company logo for each card
   let logo = ''
   switch (company) {
     case 'Andela':
-      jobCardHighlight = 'teal'
       logo = andela
       break
     case 'Epic Flight Academy':
-      jobCardHighlight = 'purple'
       logo = epic
       break
     case 'GE':
-      jobCardHighlight = 'blue'
       logo = ge
       break
     case 'Impulsion Marketing Group':
-      jobCardHighlight = 'yellow'
       logo = impulsion
       break
     case 'La Causa, Inc':
-      jobCardHighlight = 'red'
       logo = lacausa
       break
     case 'LaserCycle USA':
-      jobCardHighlight = 'green'
       logo = lasercycle
       break
     case 'Paystack Nigeria':
-      jobCardHighlight = 'violet'
       logo = paystack
       break
     default:
-      jobCardHighlight = 'gray'
+      break
   }
 
   // Build JobCard utilizing semantic-ui-react <Card /> & props
   return (
-    <Card className="job-card" color={jobCardHighlight}>
+    <Card className="job-card">
       <Image className="job-card-image" src={logo} wrapped ui={false} />
       <Card.Content className="job-card-main-content">
         <Card.Header as="h1" className="job-card-company">

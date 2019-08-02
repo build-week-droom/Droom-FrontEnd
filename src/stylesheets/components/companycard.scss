@@ -1,5 +1,70 @@
-.grid {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
+$blue: #341cac;
+$sienna: #4f0131;
+$lightgreen: #f3fff2;
+$gray: #545454;
+
+.App {
+  background-color: $gray;
+
+  .company-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 10px auto;
+
+    .ui.cards {
+      // border: 2px solid yellow;
+      width: auto;
+      margin: 12px auto;
+      padding: 5px 0;
+      text-align: center;
+      box-shadow: 8px 5px 10px 10px darken($sienna, 12%);
+      font-family: 'Roboto', sans-serif;
+      &:hover {
+        cursor: pointer;
+      }
+
+      .ui.card {
+        background: $lightgreen;
+
+        .header {
+          width: 100%;
+          margin: 15px 5px;
+          background-size: cover;
+          color: $sienna;
+          font-size: 1.6rem;
+        }
+
+        .content {
+          font-size: 1.1rem;
+          font-family: 'Farro', sans-serif;
+          padding-bottom: 5px;
+        }
+
+        .meta {
+          margin: 5px;
+        }
+
+        .content.ui.two.buttons {
+          flex-direction: row;
+          justify-content: space-around;
+          margin-top: 0px;
+
+          .play.circle.outline.icon {
+            margin: 0px;
+            color: $sienna;
+            size: 2rem;
+
+            .content.button-text {
+              margin-bottom: 0px;
+            }
+          }
+          .stop.circle.outline.icon {
+            margin: 0px;
+            color: $sienna;
+          }
+        }
+      }
+    }
+  }
 }

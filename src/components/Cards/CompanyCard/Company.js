@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import CompanyCard from './CompanyCard'
+import { Card } from 'semantic-ui-react'
 import { axiosAuth } from '../../../auth/axiosAuth';
 
 export default function Company(props) {
@@ -21,7 +22,7 @@ export default function Company(props) {
 
   console.log('company state: ', company)
   return (
-    <div className="company-wrapper">
+    <div>
       <CompanyCard company={company} />
     </div>
   )

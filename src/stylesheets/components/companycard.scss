@@ -50,9 +50,22 @@ $gray: #545454;
         .content.ui.two.buttons {
           flex-direction: row;
           justify-content: space-around;
-          border: 2px solid yellow;
           margin-top: 0px;
 
+          .play.circle.outline.icon {
+            margin: 0px;
+            color: $sienna;
+            size: 2rem;
+
+            .content.button-text {
+              margin-bottom: 0px;
+            }
+
+          }
+          .stop.circle.outline.icon {
+            margin: 0px;
+            color: $sienna;
+          }
         }
       }
     }

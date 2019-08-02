@@ -1,26 +1,60 @@
-.grid {
+
+
+$blue: #341cac;
+$sienna: #4f0131;
+$lightgreen: #f3fff2;
+$gray: #545454;
+
+.App {
+  background-color: $gray;
+
+  .company-list {
     display: flex;
-    flex-direction: row;
-  }
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 10px auto;
+
+    .ui.cards{
+      // border: 2px solid yellow;
+      width: auto;
+      margin: 12px auto;
+      padding: 5px 0;
+      text-align: center;
+      box-shadow: 8px 5px 10px 10px darken($sienna, 12%);
+      font-family: 'Roboto', sans-serif;
+      &:hover {
+        cursor: pointer;
+      }
+
+      .ui.card{
+        background: $lightgreen;
+
+        .header{
+          width: 100%;
+          margin: 15px 5px;
+          background-size:cover;
+          color:$sienna;
+          font-size: 1.6rem;
+        }
   
-  // .company-list {
+        .content {
+          font-size: 1.1rem;
+          font-family: 'Farro', sans-serif;
+          padding-bottom: 5px;
+        }
 
-  //   .company-card-description {
-  //     font-size: 1.3rem;
-  //   }
-  //   .company-card-selection{
-  //     display: flex;
-  //     // justify-content: space-between;
-  //   }
-  // }
-  
+        .meta {
+          margin: 5px;
+        }
 
-.company-card {
+        .content.ui.two.buttons {
+          flex-direction: row;
+          justify-content: space-around;
+          border: 2px solid yellow;
+          margin-top: 0px;
 
-  .main-content{
-    
-    .company-card-name{
-        border: 2px solid blue;
+        }
+      }
     }
   }
 }

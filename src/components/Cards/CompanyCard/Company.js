@@ -22,8 +22,8 @@ export default function Company(props) {
 
   console.log('company state: ', company)
   return (
-    <Card.Group className="company-list grid" itemsPerRow={2}>
+    <div>
       <CompanyCard company={company} />
-    </Card.Group>
+    </div>
   )
 }

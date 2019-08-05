@@ -1,0 +1,65 @@
+@import '../utilities/variables.scss';
+
+.grid {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.jobs-list {
+  background-image: $shell-transparent !important;
+  margin-top: 10px !important;
+}
+
+.job-card {
+  margin: 15px 0 !important;
+  max-width: 325px !important;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22) !important;
+
+  .job-card-company {
+    color: #5f5f5f !important;
+    font-size: 1.5rem !important;
+  }
+
+  .job-card-meta {
+    margin-top: -10px;
+    margin-bottom: 15px;
+  }
+
+  .job-card-title {
+    color: #5f5f5f !important;
+    font-size: 1.25rem !important;
+  }
+
+  .job-card-description {
+    font-size: 1rem !important;
+  }
+
+  .job-card-selection {
+    display: flex;
+    justify-content: space-evenly;
+
+    .company-link {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+
+      .thumbs-up-container {
+        display: flex;
+        justify-content: center;
+        min-height: 20px;
+        width: 100%;
+      }
+    }
+
+    .thumbs-down-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .icon {
+      font-size: 1.25rem;
+    }
+  }
+}
